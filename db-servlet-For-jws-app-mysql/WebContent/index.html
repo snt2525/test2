@@ -2,11 +2,50 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Database</title>
+<title>ROOT PLAN</title>
+ <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<link rel="stylesheet" href="./css/ThirdCSS.css">
+<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<h1>Database test</h1>
-<a href="newProduct.html">Add a new product to the database</a><br>
-<a href="ListProducts">List all the products from the database</a>
+ <div id="container" class="wrap">
+         
+         <form name="loginData" id="loginData" method="post">         
+           <input type="hidden" id="menuIndex" name ="menuIndex" value="0" /> 
+           <input type="hidden" id="email" name="email" value=""/>  
+           <input type="hidden" id="cID" name="cID" value=""/> 
+           <input type="hidden" id="gender" name="gender" value=""/> 
+           <input type="hidden" id="age" name="age" value=""/>
+         </form> 
+         
+       <img  class="wrapIndex" src="img/travel1.jpg"/>
+       <div class="overTitle">
+       <div style="position:absolute;text-align:center;width:100%;height:100%;top:30%;">
+           <div>
+            <a href="Second.html" id="btn-scroll"> 
+               <img src="img/logo_white.png" onmouseover="this.src='img/logo_orange.png';"   onmouseout="this.src='img/logo_white.png';" alt="goRoutePlan" />
+            </a> 
+            </div>
+              <div class='title_message'>루트플랜으로 더 편리하고 빠르게 여행을 즐기세요</div>
+        </div>
+      </div>
+   </div>
+    <script type="text/javascript" src="jsCode/Login.js?ver=1"></script>
+   <script>
+   var naver_id_login = new naver_id_login("QUyHkL9SA1c0aTQjz197", "http://ec2-18-223-122-167.us-east-2.compute.amazonaws.com/index.html");
+   //alert(naver_id_login.oauthParams.access_token); // 토큰 정보
+   naver_id_login.get_naver_userprofile("naverSignInCallback()");
+   
+    function naverSignInCallback() {
+       sessionStorage.setItem("email", naver_id_login.getProfileData('email'));
+       sessionStorage.setItem("id", naver_id_login.getProfileData('id'));
+       sessionStorage.setItem("gender", naver_id_login.getProfileData('gender'));
+       sessionStorage.setItem("age", naver_id_login.getProfileData('age'));
+       sessionCheck(0);
+    }
+    
+   </script>
 </body>
 </html>

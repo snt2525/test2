@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ROOT PLAN</title>
+ <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<link rel="stylesheet" href="./css/ThirdCSS.css">
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+ <div id="container" class="wrap">
+       <img  class="wrapIndex" src="img/travel1.jpg"/>
+       <div class="overTitle">
+       <div style="position:absolute;text-align:center;width:100%;height:100%;top:30%;">
+              <div>
+                 <a href="index.html" id='btnLogoA' name='btnLogoA' onmouseover="ChangeLogo(0)" onmouseout="ChangeLogo(1)" onclick="ChangeLogo(2)"> 
+                     <img  id='btnLogo' name='btnLogo' src="img/logo_white.png"/>
+               </a> 
+            </div>
+              <div class='title_message'>루트플랜으로 더 편리하고 빠르게 여행을 즐기세요</div>
+              <div id="naver_id_login"  style="margin-top:2%;"></div>
+              <div id="naver_id_logout"  style="margin-top:2%;">
+                 <a href="#" id="btn-logout">
+                    <img  style="height:40px" src="img/naverLogout.PNG"/>
+                 </a>
+              </div> 
+            
+        </div>
+      </div>
+   </div> 
+   <script type="text/javascript" src="jsCode/Login.js?ver=1"></script>
+   <script>
+   if(sessionStorage.getItem('id')==null){ // session이 살아있으면
+      // 아이디 창 보여주기
+      document.getElementById("naver_id_login").style.display="block"; // 보이기
+      document.getElementById("naver_id_logout").style.display="none"; // 숨기기
+   }else{
+      document.getElementById("naver_id_login").style.display="none"; // 숨기기
+      document.getElementById("naver_id_logout").style.display="block"; // 보이기
+   }
+   
+   function ChangeLogo(check){
+      if(sessionStorage.getItem('id')==null){
+         if(check=='2') alert("로그인이 필요합니다.");
+         $("#btnLogoA").attr("href", "#")
+          document.btnLogo.src = "img/logo_white.png";
+      }else if(check=='0'){
+         $("#btnLogoA").attr("href", "Second.html")
+         document.btnLogo.src = "img/logo_orange.png";
+      }else if(check=='1'){
+         $("#btnLogoA").attr("href", "Second.html")
+         document.btnLogo.src = "img/logo_white.png";
+      }
+   }
+  
+   $(function(){
+      $('#btn-logout').click(function(){
+          killSession(); // 세션 죽이기
+          document.getElementById("naver_id_login").style.display="block"; // 보이기
+         document.getElementById("naver_id_logout").style.display="none"; // 숨기기
+         alert("로그아웃 되었습니다.");
+      });
+    }); 
+   
+   /*  들어오는 정보 
+   "resultcode": "00",
+   "message": "success",
+   "response": {
+    "email": "openapi@naver.com",
+    "nickname": "OpenAPI",
+    "profile_image": "https://ssl.pstatic.net/static/pwe/address/nodata_33x33.gif",
+    "age": "40-49"
+    "gender": "F",
+    "id": "32742776",
+    "name": "오픈 API",
+    "birthday": "10-01"
+ */
+ 
+   var naver_id_login = new naver_id_login("QUyHkL9SA1c0aTQjz197", "http://ec2-18-223-122-167.us-east-2.compute.amazonaws.com/index.html");
+     var state = naver_id_login.getUniqState();
+    naver_id_login.setButton("green",6, 40);
+     naver_id_login.setDomain("YOUR_SERVICE_URL");
+     naver_id_login.setState(state);
+     naver_id_login.init_naver_id_login();
+     
+   </script>
+</body>
+</html>

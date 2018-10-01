@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<script type="text/javascript"
+	src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=gTUR4iAk1YVJAPF0hdQ9&submodules=geocoder"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<link rel="stylesheet" href="./css/ThirdCSS.css">
+<link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<div id="container">
+		<div id="aside">
+			<div id="asideContent" class="left-sidebar">
+				<!--  frameLeft -->
+				<div id="asideTop">
+					<h3 class='headline'>시작 장소 선정</h3>
+					<form name="addressList2" id="addressList2" method="post">
+						<input type="hidden" id="IDNum" name="IDNum" value="0"> 
+						<div id="list2" class="main-content" name="list2"></div>
+						<!-- 검색 결과 리스트 출력 -->
+					</form>
+				</div>
+				<div id="asideBottom">
+					<a href="Second.html" data-role="button" id="preBtn"
+						onClick="cleanSaveData();"><img src="img/click_left.png"
+						alt="prev >" /></a> <a href="Fourth.html" data-role="button"
+						id="nextBtn" onClick="possibleNext();">
+						<img src="img/click_right.png" alt="NEXT >"  /></a>
+				</div>
+
+				<form name="setIndexData" id="setIndexData" method="post">
+					<input type="hidden" id="menuIndex" name="menuIndex" value="9">
+					<input type="hidden" id="index" name="index" value="-1"> 
+					<input type="hidden" id="startLast" name="startLast" value="0">
+					<input type="hidden" id="IDNum" name="IDNum" value="0"> 
+				</form>
+				
+				<form name="getAddressData" id="getAddressData" method="post">
+					<input type="hidden" id="menuIndex" name="menuIndex" value="5">
+					<input type="hidden" id="num" name="num" value="0"> 
+					<input type="hidden" id="IDNum" name="IDNum" value="0"> 
+				</form>
+			</div>
+		</div>
+
+		<div id="content">
+			<!-- NewFile -->
+			<form name="form" id="form" method="post">
+			<input type="hidden" id="IDNum" name="IDNum" value="0"> 
+				<div class="search">
+					<input type="hidden" id="jibunAddr" value="" /> 
+					<input type="hidden" id="confmKey" name="confmKey"
+						value="U01TX0FVVEgyMDE4MDcxMTIxMDYwMTEwODAwMzQ=">
+				</div>
+			</form>
+
+			<form name="apiAB" id="apiAB" method="post">
+				<input type="hidden" id="menuIndex" name="menuIndex" value="15"/> 
+				<input type="hidden" id="a" name="a" value="" /> 
+				<input type="hidden" id="b" name="b" value="" /> 
+				<input type="hidden" id="carBlock" name="carBlock" value="0" />
+				<input type="hidden" id="IDNum" name="IDNum" value="0"> 
+			</form>
+			
+			<form name="possible" id="possible" method="post">
+				<input type="hidden" id="menuIndex" name="menuIndex" value="8" /> 
+				<input type="hidden" id="IDNum" name="IDNum" value="0"> 
+			</form>
+			
+			<form name="callLatLng" id="callLatLng" method="post">
+				<input type="hidden" id="menuIndex" name="menuIndex" value="4">
+				<input type="hidden" id="IDNum" name="IDNum" value="0"> 					
+			</form>
+
+			<form name="Init" id="Init" method="post">
+				<input type="hidden" id="menuIndex" name="menuIndex" value="12">
+				<input type="hidden" id="IDNum" name="IDNum" value="0"> 
+			</form>
+
+			<div id="wrap" class="section">
+				<div id="map2" style="width: 100%; height: 100%;"></div>
+				<code id="snippet" class="snippet"></code>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="jsCode/Login.js?ver=1"></script>
+	<script type="text/javascript" src="jsCode/ThirdMapData.js?ver=1"></script>
+	<script type="text/javascript" src="jsCode/Init.js?ver=1"></script>
+	<script>
+		if(sessionCheck(1)==1){
+			getDataThird(); //초기화
+		}
+ 	</script>
+</body>
+</html>
