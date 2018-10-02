@@ -16,5 +16,4 @@ function start() {
 			location.replace("Last.html");
 		}
 	});
-	location.replace("Last.html");
 }
