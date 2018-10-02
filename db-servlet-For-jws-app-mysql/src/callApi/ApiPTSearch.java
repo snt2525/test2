@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.LinkedList;
 
 import dao.CalculateDist;
@@ -16,7 +17,7 @@ import dto.TimeMethod;
 public class ApiPTSearch {
    CalculateDist cd = new CalculateDist();
    StringBuilder sb;
-   String key = "5FtIuAS9YmPfOD56TV5NHqYE6EivPWAAIBCZcy6V72c";
+   String key = "H7Ata/awWTzygy5uX2apoQ";
    LinkedList<dto.Address> ad;
    DataTotal dataTotal;
    // 이차원 배열을 Route.java에다가 넣어주기
@@ -92,6 +93,7 @@ public class ApiPTSearch {
             String apiURL = "https://api.odsay.com/v1/api/searchPubTransPath?SX=" + Double.toString(sx) + "&SY="
                   + Double.toString(sy) + "&EX=" + Double.toString(ex) + "&EY=" + Double.toString(ey) + "&apiKey="
                   + key + "";
+            URLEncoder.encode(apiURL, "UTF-8");
             URL url = new URL(apiURL);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
