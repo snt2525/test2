@@ -15,7 +15,7 @@ $.ajaxSetup({
 
 var map = new naver.maps.Map("map", {
    center : new naver.maps.LatLng(37.5666103, 126.9783882),
-   zoom : 8,
+   zoom : 10,
    size : new naver.maps.Size($(window).width(), $(window).height() - 300),
    mapTypeControl : true,
 

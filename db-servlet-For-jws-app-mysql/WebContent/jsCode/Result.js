@@ -26,7 +26,7 @@ var imgIconUrl = [
 
 var perv;
 $(function(){
-	prev = "#tabCar";
+	prev = "#tabPT";
    $('#tabCar').click(function(){
 	   $(prev).css("background-color","rgb(255, 153, 000)");
 	   prev = "#tabCar";
