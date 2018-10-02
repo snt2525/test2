@@ -159,7 +159,7 @@ public class InfoPT {
 		lineList.add(pair);
 	}
 
-	public void print() {
+	/*public void print() {
 		//System.out.println("sx, sy= "+this.getSx()+","+this.getSy());
 		//System.out.println("ex, ey= "+this.getEx()+","+this.getEy());
 		//System.out.println("첫 정거장, 마지막 정거장 : " + this.getFirstStartStation() + " , " + this.getLastEndStation());
@@ -179,5 +179,5 @@ public class InfoPT {
 					//System.out.println("버스 : " + b.getBusNoList(j));
 			}
 		}
-	}
+	}*/
 }

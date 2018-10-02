@@ -135,7 +135,7 @@ public class ApiCarSearch {
 			} 
 	   }
 	   
-	   //System.out.println("차 결과 api호출");
+	   /*System.out.println("차 결과 api호출");
 		  for(int i =0;i<listSize-1;i++)
 			  //System.out.print(result[i]+" ");
 
@@ -143,7 +143,7 @@ public class ApiCarSearch {
 	   for(int i=0; i<listSize-1; i++) {
 		   //System.out.print(result[i]+ " ");
 	   }
-	   //System.out.println();
+	   //System.out.println();*/
    }
 
    // 마지막에 결과 재호출해서 한노드에서 한 노드로 총 정보 가져오기 
