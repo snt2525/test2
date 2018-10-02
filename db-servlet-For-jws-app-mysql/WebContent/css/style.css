@@ -117,6 +117,10 @@ p.lead {
    display: inline-block;
 }
 
+.navImg{
+	margin-top:5px;
+	width:130px;
+}
 a {
    color: #666;
    -webkit-transition: all .2s ease-in-out;
