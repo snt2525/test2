@@ -103,10 +103,20 @@
 	<script type="text/javascript" src="jsCode/Result.js?ver=1"></script>
 	<script>
 		sessionCheck(1);		
-		checkSave();
-		callResult(); // 마커 그리기
-		callPolyLine(1); // 대중교통 폴리라인 그리기 
-		showResultCar(); // 왼쪽 자동차 뿌리기
+		checkSave();		
+		sleep();
+		
+		function sleep(){
+		    var then,now;
+		  	var = new Date().getTime();
+		  	now = then;
+		  	while((now - then) < 2000){
+		  		now = new Date.getTime();
+		  	}
+		  	callResult(); // 마커 그리기
+			callPolyLine(1); // 대중교통 폴리라인 그리기 
+			showResultCar(); // 왼쪽 자동차 뿌리기	  	
+		}
 		
 		
 		function toggleLayer(layer)
