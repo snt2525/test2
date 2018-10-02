@@ -83,8 +83,19 @@ h1.font-light, h2.font-light, h3.font-light, h4.font-light, h5.font-light,
    font-weight: 700;
 }
 
+hr.style-four {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+hr.style-two {
+   border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
 p {
-   font-size: 12px;
+   font-size: 13px;
 }
 
 p.lead {
@@ -187,12 +198,19 @@ blockquote strong {
 
 /* left bar  */
 .headline {
-   font-size: 30px;
+   font-size: 25px;
    font-weight: 700;
-   text-align: center;
+   text-align: left;
    margin-top: 5%;
    margin-bottom:10%;
    line-height: 40px;
+}
+
+.headline1 {
+   font-size: 25px;
+   font-weight: 600;
+   text-align: left;
+   margin-top: 20px;
 }
 
 .each-row {
@@ -213,25 +231,31 @@ a.delete-factor {
    font-size: 20px;
    font-weight: 700;
    margin-bottom: 5%;
-   display: inline-block;
-   width: 7%;
+   margin-right:10px;
    float: left;
+   flex:1;
 }
 
 .middle-content {
    font-size: 20px;
    font-weight: 700;
    margin-bottom: 5%;
-   display: inline-block;
    width: 85%;
+   float:center;
+   flex:8;
    word-break: break-all;
 }
 
 .right-content {
-   display: inline-block;
+	margin-left:10px;
    float: right;
+   flex:1;
 }
-
+.right-content1 {
+	margin-top:20px;
+   float: right;
+   flex:1;
+}
 .left-content-home {
    margin-top:3%; 
    margin-left:3%;

@@ -119,7 +119,7 @@ function showResultPT(){
              var totalDistance=0, totalTime=0, totalFare=0;
              var now=-1;
              var sectionSize =0, cnt=0, tmpId=0, cnt1=0, wayCount=0, count=0, cycle=0;
-             htmlStr += "<div>대중교통 정보가 없을 때는 교통정보를 제공하지 않습니다.</div>";
+             htmlStr += "<div><br><br><br>대중교통 정보가 없을 때는 교통정보를 제공하지 않습니다.</div>";
              htmlStr += "<div>직선거리 800m 이하는 도보로 제공됩니다.</div>";
              htmlStr += "<div>대중교통 이용시 걷는 시간 및 거리는 포함되지 않습니다.</div><br>";
              htmlStr += "<div><img class='iconImg' src='img/bus.png'/> : 버스 | <img class='iconImg' src='img/subway.png'/> : 지하철 | <img class='iconImg' src='img/walk.png'/> : 도보</div><div><hr class='one'>";
@@ -243,7 +243,7 @@ function showResultCar(){
           success: function(data){
              var htmlStr ="";
              var totalDistance=0, totalTime=0, totalFare=0, now=0, wayCount=0, count=0, cycle=0;
-             htmlStr += "<div>접근 불가능한 지역은 교통정보를 제공하지 않습니다.</div>";
+             htmlStr += "<div><br><br><br>접근 불가능한 지역은 교통정보를 제공하지 않습니다.</div>";
              htmlStr += "<div>직선거리 800m 이하는 도보로 제공됩니다.</div><br>";
              htmlStr += "<div><img class='iconImg' src='img/car.png'/> : 자동차 | <img class='iconImg' src='img/walk.png'/> : 도보</div><div><hr class='one'>";
              $(data).find("Data").each(function(){

@@ -68,10 +68,11 @@ html, body {
 	padding-bottom:6px;
 }
 
-#tarPT{
+#tabPT{
 	float:right;
 	width:50%;
 	display:inline-block;
+	background-color:rgb(255, 153, 000);
 }
 
 div {

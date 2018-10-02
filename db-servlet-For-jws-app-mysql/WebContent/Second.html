@@ -18,24 +18,25 @@
       <div id="aside">
       	<!-- 네비게이션 바 같은 것  -->
       	<div class="naviBar">
-      		<div style="display:flex;padding:10px;">
+      		<div style="display:flex;">
 	      		<div id="bar1">
 	      			<a href="Second.html">
 		        		<img class="navImg" src="img/logo_color.png"/>
 		        	</a>
 	      		</div>
-	      		<div id="bar2"></div> <!-- **님 환영합니다. -->      		
-        	</div>        	
+	      		<div id="bar2"></div> <!-- **님 환영합니다. -->
+        	</div> 
+        	      	
       	</div>
       	<div style="display:flex;height:7%;background-color:rgb(255, 153, 000);">
       		<div id="btnSaveList">
       			<a href="#">
-	        		<img style="margin-top:15px;width:70px;" src="img/menu_save.png"/>
+	        		<img style="margin-top:10px;width:60px;" src="img/menu_save.png"/>
 	        	</a>
       		</div>
       		<div id="btnMainList">
       			<a href="#">
-	        		<img  style="width:70px; margin-top:15px;" src="img/menu_select.png"/>
+	        		<img  style="width:60px; margin-top:10px;" src="img/menu_select.png"/>
         		</a>
       		</div>      		
      		 <div id="btnSearch" >
@@ -47,7 +48,7 @@
                      value="U01TX0FVVEgyMDE4MDcxMTIxMDYwMTEwODAwMzQ="> 
             	
     		 	   <a href="#" id="roadAddrPart1" onclick="goPopup();">
-    		 		<img style="width:70px;margin-top:15px;" src="img/menu_search.png"/>
+    		 		<img style="width:60px;margin-top:10px;" src="img/menu_search.png"/>
     		 	   </a>
      		 	</form>
      		 </div>
@@ -66,7 +67,8 @@
             </div>
      
             
-            <div id="aisdeKeyword">
+            <div id="aisdeKeyword" >
+            	<hr class="style-two">
             	<div id="message" name="message" style="font-weight:500;">가이드 키워드입니다. 클릭한 지역의 키워드로 오른쪽에 결과를 볼 수 있습니다.</div>
             	<div style="margin-top:10px;"> <!-- 여기에 다양한 키워드 넣기 -->
             		<form name="keyword" id="keyword" method="post">
@@ -85,8 +87,9 @@
             			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="테마파크">
             		</form>
             	</div>
+            	
             </div>
-            <div id="asideBottom">
+            <div id="asideBottom" >
                <a href="Third.html" data-role="button" id="nextBtn1" onClick="getDataSize(0);"> 
                <img src="img/click_right.png" alt="NEXT >" />
                </a>
@@ -202,7 +205,7 @@
 	 	if(sessionCheck(1) == 1){
   			getData(); //초기화init()
     	 	getLocalSearchData();
-		}  		 
+		}
     </script>
 </body>
 </html>
