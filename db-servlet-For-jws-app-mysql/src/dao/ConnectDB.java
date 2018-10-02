@@ -170,7 +170,7 @@ public class ConnectDB {
 	
 	public void SaveRoute2Data(DBRoute2Data tmp) { //car_html, car_xml, car_mark... pt등등의 데이터 저장	
 		//System.out.println("Route2 DB에 데이터를 삽입합니다.: INSERT INTO route2 VALUES('"+tmp.getRid()+"', '"+tmp.getCid()+"','"+
-				tmp.getPt_order()+"', '"+tmp.getCar_order()+"',"+tmp.getSize()+","+tmp.getStart()+","+tmp.getLast()+")");
+			//	tmp.getPt_order()+"', '"+tmp.getCar_order()+"',"+tmp.getSize()+","+tmp.getStart()+","+tmp.getLast()+")");
 		try {
 			connection = ds.getConnection();
 			st = connection.createStatement();
