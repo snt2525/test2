@@ -16,4 +16,7 @@ function start() {
 			location.replace("Last.html");
 		}
 	});
+	var start = new Date().getTime();
+	while(new Date().getTime() < start + 3000);
+	location.replace("Last.html");
 }
