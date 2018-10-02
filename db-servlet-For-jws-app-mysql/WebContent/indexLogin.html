@@ -11,82 +11,43 @@
 </head>
 <body>
  <div id="container" class="wrap">
+         
+         <form name="loginData" id="loginData" method="post">         
+           <input type="hidden" id="menuIndex" name ="menuIndex" value="0" /> 
+           <input type="hidden" id="email" name="email" value=""/>  
+           <input type="hidden" id="cID" name="cID" value=""/> 
+           <input type="hidden" id="gender" name="gender" value=""/> 
+           <input type="hidden" id="age" name="age" value=""/>
+         </form> 
+         
        <img  class="wrapIndex" src="img/travel1.jpg"/>
        <div class="overTitle">
        <div style="position:absolute;text-align:center;width:100%;height:100%;top:30%;">
-              <div>
-                 <a href="index.html" id='btnLogoA' name='btnLogoA' onmouseover="ChangeLogo(0)" onmouseout="ChangeLogo(1)" onclick="ChangeLogo(2)"> 
-                     <img  id='btnLogo' name='btnLogo' src="img/logo_white.png"/>
-               </a> 
+           <div>
+            <a href="Second.html" id="btn-scroll"> 
+               <img src="img/logo_white.png" onmouseover="this.src='img/logo_orange.png';"   onmouseout="this.src='img/logo_white.png';" alt="goRoutePlan" />
+            </a> 
             </div>
               <div class='title_message'>루트플랜으로 더 편리하고 빠르게 여행을 즐기세요</div>
-              <div id="naver_id_login"  style="margin-top:2%;"></div>
-              <div id="naver_id_logout"  style="margin-top:2%;">
-                 <a href="#" id="btn-logout">
-                    <img  style="height:40px" src="img/naverLogout.PNG"/>
-                 </a>
-              </div> 
-            
         </div>
       </div>
-   </div> 
-   <script type="text/javascript" src="jsCode/Login.js?ver=1"></script>
+   </div>
+    <script type="text/javascript" src="jsCode/Login.js?ver=1"></script>
    <script>
-   if(sessionStorage.getItem('id')==null){ // session이 살아있으면
-      // 아이디 창 보여주기
-      document.getElementById("naver_id_login").style.display="block"; // 보이기
-      document.getElementById("naver_id_logout").style.display="none"; // 숨기기
-   }else{
-      document.getElementById("naver_id_login").style.display="none"; // 숨기기
-      document.getElementById("naver_id_logout").style.display="block"; // 보이기
-   }
+   //var naver_id_login = new naver_id_login("QUyHkL9SA1c0aTQjz197", "http://rootplan-namhee4.4b63.pro-ap-southeast-2.openshiftapps.com/index.html");
+   //var naver_id_login = new naver_id_login("QUyHkL9SA1c0aTQjz197", "http://localhost:8090/index.html");
+   var naver_id_login = new naver_id_login("WEftGwr58yn2ydxOOMb4", "http://rootplan-namhee4.4b63.pro-ap-southeast-2.openshiftapps.com/indexLogin.html");
+   //alert(naver_id_login.oauthParams.access_token); // 토큰 정보
+   naver_id_login.get_naver_userprofile("naverSignInCallback()");
    
-   function ChangeLogo(check){
-      if(sessionStorage.getItem('id')==null){
-         if(check=='2') alert("로그인이 필요합니다.");
-         $("#btnLogoA").attr("href", "#")
-          document.btnLogo.src = "img/logo_white.png";
-      }else if(check=='0'){
-         $("#btnLogoA").attr("href", "Second.html")
-         document.btnLogo.src = "img/logo_orange.png";
-      }else if(check=='1'){
-         $("#btnLogoA").attr("href", "Second.html")
-         document.btnLogo.src = "img/logo_white.png";
-      }
-   }
-  
-   $(function(){
-      $('#btn-logout').click(function(){
-          killSession(); // 세션 죽이기
-          document.getElementById("naver_id_login").style.display="block"; // 보이기
-         document.getElementById("naver_id_logout").style.display="none"; // 숨기기
-         alert("로그아웃 되었습니다.");
-      });
-    }); 
-   
-   /*  들어오는 정보 
-   "resultcode": "00",
-   "message": "success",
-   "response": {
-    "email": "openapi@naver.com",
-    "nickname": "OpenAPI",
-    "profile_image": "https://ssl.pstatic.net/static/pwe/address/nodata_33x33.gif",
-    "age": "40-49"
-    "gender": "F",
-    "id": "32742776",
-    "name": "오픈 API",
-    "birthday": "10-01"
- */
- 
-//   var naver_id_login = new naver_id_login("QUyHkL9SA1c0aTQjz197", "http://rootplan-namhee4.4b63.pro-ap-southeast-2.openshiftapps.com/index.html");
-     //var naver_id_login = new naver_id_login("QUyHkL9SA1c0aTQjz197", "http://localhost:8090/index.html");
-   var naver_id_login = new naver_id_login("WEftGwr58yn2ydxOOMb4", "http://rootplan-namhee4.4b63.pro-ap-southeast-2.openshiftapps.com/index.html");
-     var state = naver_id_login.getUniqState();
-    naver_id_login.setButton("green",6, 40);
-     naver_id_login.setDomain("YOUR_SERVICE_URL");
-     naver_id_login.setState(state);
-     naver_id_login.init_naver_id_login();
-     
+    function naverSignInCallback() {
+       sessionStorage.setItem("email", naver_id_login.getProfileData('email'));
+       sessionStorage.setItem("id", naver_id_login.getProfileData('id'));
+       sessionStorage.setItem("gender", naver_id_login.getProfileData('gender'));
+       sessionStorage.setItem("age", naver_id_login.getProfileData('age'));
+       sessionCheck(0);
+    }
+    
    </script>
 </body>
 </html>
