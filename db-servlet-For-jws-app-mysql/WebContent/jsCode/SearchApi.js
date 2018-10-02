@@ -33,7 +33,6 @@ function getLocalSearchData(){
    $.ajax({
        url:"/CallSearchLocalApi",
        dataType: "text",
-       ContentType : 'text/html; charset=utf-8',
        data: $("#SiData").serialize()+"&customerID="+customerID,
        success: function(data){
     	   if(data!='0'){
@@ -101,7 +100,6 @@ function showAddressData(xData,yData,no){  //나중에 marker가 안나온다면
        url:"/CallSearchLocalApi",
        dataType: "text",
        type : "post",
-       ContentType : 'text/html; charset=utf-8',
        data: $("#getImgURL").serialize()+"&customerID="+customerID,
        success: function(data){
     	  var cnt = 0;   	  
@@ -214,7 +212,6 @@ function callSearchApi(num){
             url:"/CallSearchLocalApi",
             type : "post",
             dataType: "xml",
-            ContentType : 'text/html; charset=utf-8',
             data: $("#searchApi").serialize()+"&customerID="+customerID,
             success: function(data){               
                $(data).find("ResultData").each(function(){   

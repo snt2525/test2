@@ -240,7 +240,7 @@ function showResultCar(){
           async:false,
           dataType: "xml",
           data:  $("#showCar").serialize()+"&customerID="+customerID,
-          success: function(data){
+          success: function(data){ 
              var htmlStr ="";
              var totalDistance=0, totalTime=0, totalFare=0, now=0, wayCount=0, count=0, cycle=0;
              htmlStr += "<div>접근 불가능한 지역은 교통정보를 제공하지 않습니다.</div>";

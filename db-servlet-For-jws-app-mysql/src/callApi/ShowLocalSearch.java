@@ -78,7 +78,7 @@ public class ShowLocalSearch {
        display = 20;
         try {
         	System.out.println("검색 호출");
-            String text = URLEncoder.encode(findLocation + " " + keyword, "utf-8");
+            String text = URLEncoder.encode(findLocation + " " + keyword, "UTF-8");
             String apiURL = "https://openapi.naver.com/v1/search/local?query=" + text + "&display=" + display + "&";
             URL url = new URL(apiURL);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
