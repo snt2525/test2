@@ -128,7 +128,7 @@ naver.maps.onJSContentLoaded = initGeocoder;
 function goPopup() {
    // 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
      $("#roadAddrPart1").val("");  //주소text 초기화
-      var pop = window.open("./WEB-INF/jusoPopup.jsp","pop","width=570,height=420,  scrollbars=yes, resizable=yes");
+      var pop = window.open("jusoPopup.jsp","pop","width=570,height=420,  scrollbars=yes, resizable=yes");
       flag=1;
 }
 
