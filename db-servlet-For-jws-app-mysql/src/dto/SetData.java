@@ -15,7 +15,7 @@ public class SetData {
 	
 	public void SetLastData(int l) {
 		this.lastIndex = l;
-		System.out.println("호출:"+startIndex+" "+lastIndex);
+		//System.out.println("호출:"+startIndex+" "+lastIndex);
 	}
 	
 	public int GetStartData() {

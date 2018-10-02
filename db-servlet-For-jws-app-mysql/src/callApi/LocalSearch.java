@@ -21,7 +21,7 @@ public class LocalSearch {
 		  if(num == 1) {
 			  String[] splitRest = findLocation.split(" ");
 			  int size = splitRest.length;
-			  //System.out.println(findLocation);
+			  ////System.out.println(findLocation);
 			  findLocation = "";
 			  if(size == 1) {   
 					result+= "<ResultData>";		
@@ -37,7 +37,7 @@ public class LocalSearch {
 		  }
 		
 		    try {
-		       //System.out.println("검색 호출");
+		       ////System.out.println("검색 호출");
 		        String text = URLEncoder.encode(findLocation, "utf-8");
 		        String apiURL = "https://openapi.naver.com/v1/search/local?query=" + text + "&display=" + display + "&";
 		        URL url = new URL(apiURL);
@@ -62,7 +62,7 @@ public class LocalSearch {
 		            br.close();
 		            con.disconnect();
 		            
-		           //System.out.println(sb);
+		           ////System.out.println(sb);
 		           
 		        String data = sb.toString();
 		        String[] array;
@@ -101,19 +101,19 @@ public class LocalSearch {
 		           result+= "<title>"+findLocation+"</title>";     
 		           result+= "</ResultData>";
 		        }
-		        //System.out.println(result);
+		        ////System.out.println(result);
 		    } catch (Exception e) {
-		        System.out.println(e);
+		        //System.out.println(e);
 		    } 
 		    return result;
 	   }
 	   
 	   protected Boolean checkResult(Location location, String[] tmp, String findLocation) {
-		      //System.out.println("왜니:"+ location.getTitle());
+		      ////System.out.println("왜니:"+ location.getTitle());
 		      String addTmp = location.getRoadaddress(); //주소가 같은지
 		      String[] addressTmp = addTmp.trim().split(" ");
 		         for(int j=0;j<tmp.length;j++) {
-		            //System.out.println("왜니1:"+ tmp[j]+", "+ addressTmp[j] +",tmp:" +tmp.length+"addressTmp.length: "+addressTmp.length);
+		            ////System.out.println("왜니1:"+ tmp[j]+", "+ addressTmp[j] +",tmp:" +tmp.length+"addressTmp.length: "+addressTmp.length);
 		            if(j>=addressTmp.length) break;
 		            if(!tmp[j].equals(addressTmp[j])) { 
 		               return false;
@@ -136,7 +136,7 @@ public class LocalSearch {
 		               break;
 		            }
 		         }
-		       //System.out.println("왜니2:"+ location.getTitle());
+		       ////System.out.println("왜니2:"+ location.getTitle());
 		         if(!flag) 
 		            return false;
 		         else
@@ -144,7 +144,7 @@ public class LocalSearch {
 		   }
 		   
 		   protected String makeCheckList(Location l, String title) {
-		      //System.out.println("@@@ss@@@@"+title);
+		      ////System.out.println("@@@ss@@@@"+title);
 		      String result = "";
 		      result+= "<ResultData>";      
 		      result+= "<title>" + title + "</title>";  

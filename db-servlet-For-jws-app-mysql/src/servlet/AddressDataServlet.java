@@ -46,9 +46,9 @@ public class AddressDataServlet extends HttpServlet {
       response.setContentType("text/html;charset=UTF-8");
       
       PrintWriter out = response.getWriter();
-      System.out.println("연결: "+ request.getParameter("menuIndex"));
+      //System.out.println("연결: "+ request.getParameter("menuIndex"));
       int optionNum = Integer.parseInt(request.getParameter("menuIndex"));
-      //System.out.println("customerID : "+request.getParameter("customerID"));
+      ////System.out.println("customerID : "+request.getParameter("customerID"));
       int ID = Integer.parseInt(request.getParameter("customerID"));
       
       
@@ -58,7 +58,7 @@ public class AddressDataServlet extends HttpServlet {
         	 String cID = request.getParameter("cID");   
         	 String what2 = request.getParameter("what"); //저장된거 단순 검사인지, 저장하려는건지
         	 String name = request.getParameter("name");
-        	 System.out.println("cID(서블렛) : "+cID);
+        	 //System.out.println("cID(서블렛) : "+cID);
         	 String resultFlag = db[ID].CheckSameData(ad[ID].addressData, cID, what2, name);
         	 if(resultFlag.equals("1") && what2.equals("1")) { //리스트에 내용이 저장됬어, 그리고 route2에서 데이터 가져오기
         		 String rID2 = db[ID].makeRID(ad[ID].addressData); //rid만들어오기
@@ -97,7 +97,7 @@ public class AddressDataServlet extends HttpServlet {
             break;
             
          case 4: //위도 경도
-        	  System.out.print("위도 경도,"); 
+        	  //System.out.print("위도 경도,"); 
         	  String result3 = ad[ID].callLatLng(sd[ID]); 
         	  out.print(result3);  
             break;
@@ -105,13 +105,13 @@ public class AddressDataServlet extends HttpServlet {
          case 5: //주소 리스트 호출
             String result4 = ad[ID].callAllAddress();
             int num = Integer.parseInt(request.getParameter("num"));
-            System.out.println("num : " + num);
+            //System.out.println("num : " + num);
             if(num== 0) {  //3번째 페이지에 오면 시작과 끝을 초기화 해준다.
-            	System.out.println("초기화");
+            	//System.out.println("초기화");
             	this.r[ID] = new Route(ad[ID].addressData.size());
             	apiFlag[ID] = true;   
                // r[ID].Clear();
-                System.out.println("자동차 flag ="+ r[ID].carFlag+", 대중교통 flag="+ r[ID].ptFlag);
+                //System.out.println("자동차 flag ="+ r[ID].carFlag+", 대중교통 flag="+ r[ID].ptFlag);
             	sd[ID].SetStartData(-1);
             	sd[ID].SetLastData(-1);
             }
@@ -135,10 +135,10 @@ public class AddressDataServlet extends HttpServlet {
             break;   
             
          case 9:  //start, last 데이터 넣기
-        	 System.out.println("호출");
+        	 //System.out.println("호출");
             int index = Integer.parseInt(request.getParameter("index"));
             int startLast = Integer.parseInt(request.getParameter("startLast"));
-            System.out.print(index);
+            //System.out.print(index);
             if(startLast == 0) 
                sd[ID].SetStartData(index);
             else if(startLast == 1) 
@@ -157,7 +157,7 @@ public class AddressDataServlet extends HttpServlet {
             break;
             
          case 12: //api 호출 여부
-        	 System.out.println("19번 연결");       
+        	 //System.out.println("19번 연결");       
              String result14 = "";
           		  result14 += "<Data>";
           		  result14 += "<lat>" + Double.toString(ad[ID].addressData.get(0).getLat()) + "</lat>";
@@ -168,14 +168,14 @@ public class AddressDataServlet extends HttpServlet {
              
          case 13:  //결과 로딩이 끝났는지 
         	 int what = Integer.parseInt(request.getParameter("what"));
-        	 System.out.println("13," +what +":"+ r[ID].ptFlag);
+        	 //System.out.println("13," +what +":"+ r[ID].ptFlag);
         	 int result13 = 0; 
         	 if(what == 0) { //대중교통
 	        		 try {
 	        			 while(true) {
 	        				 Thread.sleep(500);
 	        				 if(r[ID].ptFlag == 1 && sd[ID].GetStartData() != -1 && sd[ID].GetLastData() != -1) {
-	    	        			 System.out.println("대:"+r[ID].ptFlag+", "+sd[ID].GetStartData() +", "+sd[ID].GetLastData());
+	    	        			 //System.out.println("대:"+r[ID].ptFlag+", "+sd[ID].GetStartData() +", "+sd[ID].GetLastData());
 	    	        			 result13 = 1;
 	    	        			 break;
 	    	        		 }
@@ -189,7 +189,7 @@ public class AddressDataServlet extends HttpServlet {
         				while(true) {         
 						Thread.sleep(500);
 						if(r[ID].carFlag == 1 && sd[ID].GetStartData() != -1 && sd[ID].GetLastData() != -1) {
-	        				System.out.println("자동차While:"+r[ID].carFlag);
+	        				//System.out.println("자동차While:"+r[ID].carFlag);
 		        			 result13 = 1;
 		        			 break;
 		        		 }
@@ -199,13 +199,13 @@ public class AddressDataServlet extends HttpServlet {
 						e.printStackTrace();    			 
 					}
         	 }
-        	 System.out.println(result13);
+        	 //System.out.println(result13);
         	 out.print(result13);
         	 break;
             
          case 14: //전체 latlng이랑 사이즈 넘기기
             String result10 = ad[ID].callAllLatLng();
-            System.out.print(result10);
+            //System.out.print(result10);
             out.print(result10);
             break;
             
@@ -220,17 +220,17 @@ public class AddressDataServlet extends HttpServlet {
             
          case 16:  //대중교통 dfs or 마커 결과 재호출 
            int how = Integer.parseInt(request.getParameter("how"));
-           System.out.println("16번 연결");            
+           //System.out.println("16번 연결");            
            r[ID].callShortestPath(sd[ID].GetStartData(),sd[ID].GetLastData(), sd[ID].isSame(), how); // 자동차 1, 대중교통  0     
            if(r[ID].dataTotal.isError()) {
-        	   System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$4");
+        	   //System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$4");
         	   out.print("0"); // 에러 존재, 경로제공 안함
            }
            break;
          
          case 17:  //마크를 위한 호출
            int how2 = Integer.parseInt(request.getParameter("how")); 
-           System.out.println("17번 연결"); 
+           //System.out.println("17번 연결"); 
            out.print(r[ID].orderResult(how2, ad[ID]));
            break;
          
@@ -240,7 +240,7 @@ public class AddressDataServlet extends HttpServlet {
            break;
            
          case 19: //사용자가 선택한 저장된 DB데이터를 불러오고 list에 있는데이터 바꾸기
-        	System.out.println("19번 들어옴");
+        	//System.out.println("19번 들어옴");
      	   String cID2 = request.getParameter("cID");  
      	   String rID2 = request.getParameter("rID");
      	   ad[ID].callSaveDBData(rID2, cID2);        	
@@ -249,7 +249,7 @@ public class AddressDataServlet extends HttpServlet {
         	 
          case 20: // 대중교통 left 에 뿌려줌
     	   int how4 = Integer.parseInt(request.getParameter("how"));
-    	   System.out.println("서블렛 20번 들어옴");
+    	   //System.out.println("서블렛 20번 들어옴");
     	   out.print(r[ID].resultList(how4, ad[ID], sd[ID]));
            break;   
            
@@ -271,7 +271,7 @@ public class AddressDataServlet extends HttpServlet {
         	 break;
 	 
          case 23: // 세션 죽일 때
-        	System.out.println("리스트 초기화");
+        	//System.out.println("리스트 초기화");
      	 	/*db = new ConnectDB[ID];
      	    ad = new AddressDataManager[ID];  
      	    sd = new SetData[ID];*/

@@ -28,7 +28,7 @@ public class ShowLocalSearch {
         findLocation = si;   //지도에서 받은 시의 위치를 넣어준다.
     } 
    public String getImage(String imgTitle) {
-      System.out.println("이미지 불러오기");
+      //System.out.println("이미지 불러오기");
       try {
          String text = URLEncoder.encode(imgTitle, "utf-8");
          // 여기에 있는 display 값을 조정함에 따라 사진을 긁어오는게 달라진다. 
@@ -38,7 +38,7 @@ public class ShowLocalSearch {
          con.setRequestMethod("GET");
          con.setRequestProperty("X-Naver-Client-Id", clientId);
          con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
-         //System.out.println("URL : " + apiURL);
+         ////System.out.println("URL : " + apiURL);
          int responseCode = con.getResponseCode();
          BufferedReader br;
          if (responseCode == 200) {
@@ -55,7 +55,7 @@ public class ShowLocalSearch {
 
          br.close();
          con.disconnect();
-         //System.out.println(sb);
+         ////System.out.println(sb);
          String data = sb.toString();
          String[] array;
          array = data.split("\"");
@@ -65,7 +65,7 @@ public class ShowLocalSearch {
                return array[i+2];
          }
       }catch(Exception e) {
-         System.out.println(e);
+         //System.out.println(e);
       }
       return null;
    }
@@ -73,11 +73,11 @@ public class ShowLocalSearch {
 
    // 후에 함수로 변경 : 매개변수(findLocation) : 시주소
    public LinkedList<Location> getRecommendData() {
-	   System.out.println("keyword : " + keyword);
+	   //System.out.println("keyword : " + keyword);
       ld.clear();
        display = 20;
         try {
-        	System.out.println("검색 호출");
+        	//System.out.println("검색 호출");
             String text = URLEncoder.encode(findLocation + " " + keyword, "utf-8");
             String apiURL = "https://openapi.naver.com/v1/search/local?query=" + text + "&display=" + display + "&";
             URL url = new URL(apiURL);
@@ -85,7 +85,7 @@ public class ShowLocalSearch {
             con.setRequestMethod("GET");
             con.setRequestProperty("X-Naver-Client-Id", clientId);
             con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
-          //  System.out.println("URL : " + apiURL);
+          //  //System.out.println("URL : " + apiURL);
             int responseCode = con.getResponseCode();
             BufferedReader br;
             if (responseCode == 200) {
@@ -102,7 +102,7 @@ public class ShowLocalSearch {
  
             br.close();
             con.disconnect();
-            //System.out.println("sb: "  + sb); 
+            ////System.out.println("sb: "  + sb); 
             String data = sb.toString();
             String[] array;
             array = data.split("\"");
@@ -141,7 +141,7 @@ public class ShowLocalSearch {
                 }
             }
         } catch (Exception e) {
-            System.out.println(e);
+            //System.out.println(e);
         }
         
         return ld;

@@ -79,11 +79,11 @@ public class InfoCar {
 	}
 	
 	public void print() { // 출력 용
-		System.out.println("출력하기");
-		System.out.println("거리 : " + this.getDistance());
-		System.out.println("시간 : " + this.getTime());
+		//System.out.println("출력하기");
+		//System.out.println("거리 : " + this.getDistance());
+		//System.out.println("시간 : " + this.getTime());
 		for(int i=0; i<this.lineList.size(); i++) {
-			System.out.println(this.lineList.get(i).getX() + " , " + this.lineList.get(i).getY());
+			//System.out.println(this.lineList.get(i).getX() + " , " + this.lineList.get(i).getY());
 		}
 	}
 }

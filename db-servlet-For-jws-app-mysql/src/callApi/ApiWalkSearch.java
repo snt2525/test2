@@ -17,7 +17,7 @@ public class ApiWalkSearch{
 
    // dfs를 위한 거리 값 가져올떄
    public int walkApi(int sno, int eno, double sx, double sy, double ex, double ey) {
-	   System.out.println("ddddddddddddd걷기");
+	   //System.out.println("ddddddddddddd걷기");
       int findTime = 0;
       try {
           String apiURL = "https://api2.sktelecom.com/tmap/routes/pedestrian?version=1&format=xml&startX="
@@ -36,7 +36,7 @@ public class ApiWalkSearch{
               br = new BufferedReader(new InputStreamReader(con.getInputStream()));
           } else {
               br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
-              System.out.print("실패");
+              //System.out.print("실패");
           }
           sb = new StringBuilder();
           String line;
@@ -95,7 +95,7 @@ public class ApiWalkSearch{
 				con.disconnect();
 				String data = sb.toString();
 
-				System.out.println("d실패" + data);	
+				//System.out.println("d실패" + data);	
 				infopt.setError(true);
 				return infopt;
 			}
@@ -116,7 +116,7 @@ public class ApiWalkSearch{
 			array = data.split("<|>");
 
 			
-			System.out.println("성공 : " + data);
+			//System.out.println("성공 : " + data);
 			
 			for (int i = 0; i < array.length; i++) {
 				if (array[i].equals("id")){
@@ -168,7 +168,7 @@ public class ApiWalkSearch{
 				br = new BufferedReader(new InputStreamReader(con.getInputStream()));
 			} else {
 				br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
-				System.out.println("d실패");
+				//System.out.println("d실패");
 			}
 			sb = new StringBuilder();
 			String line;

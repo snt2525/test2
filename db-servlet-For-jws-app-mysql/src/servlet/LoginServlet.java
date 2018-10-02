@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       response.setContentType("text/html;charset=UTF-8");         
       PrintWriter out = response.getWriter();
-      System.out.println("사용자주소할당");      
+      //System.out.println("사용자주소할당");      
       String ID=request.getParameter("customerID");   
       int menuIndex = Integer.parseInt(request.getParameter("menuIndex"));
       
@@ -45,14 +45,14 @@ public class LoginServlet extends HttpServlet {
          String cid = request.getParameter("cID");
          String gender = request.getParameter("gender");
          String age = request.getParameter("age");
-         System.out.println("이메일= "+email+", cid= "+cid+" , gender= "+gender+" , age=" + age);
+         //System.out.println("이메일= "+email+", cid= "+cid+" , gender= "+gender+" , age=" + age);
          CustomerInfo tmp = new CustomerInfo(cid, email, gender, age);
          
          if(logCheck.containsKey(cid)) {
-        	 System.out.println("이미 해시에 아이디 있음 ");
+        	 //System.out.println("이미 해시에 아이디 있음 ");
         	 out.print(logCheck.get(cid));
          }else{
-        	 System.out.println("해시에 아이디 없음 ");
+        	 //System.out.println("해시에 아이디 없음 ");
             for(int i =0;i<20;i++) { //빈곳을 찾아 할당 해준다.
                if(log[i] == 0) {
                   log[i] = 1;
@@ -68,7 +68,7 @@ public class LoginServlet extends HttpServlet {
          
       case 1: //주소 
          String cID = request.getParameter("cID");
-         System.out.println("cID : " + cID);
+         //System.out.println("cID : " + cID);
          int customerCnt =  logCheck.get(cID);
          log[customerCnt] = 0;
          if(customerSize == customerCnt)

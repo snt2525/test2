@@ -160,23 +160,23 @@ public class InfoPT {
 	}
 
 	public void print() {
-		System.out.println("sx, sy= "+this.getSx()+","+this.getSy());
-		System.out.println("ex, ey= "+this.getEx()+","+this.getEy());
-		System.out.println("첫 정거장, 마지막 정거장 : " + this.getFirstStartStation() + " , " + this.getLastEndStation());
-		System.out.println("총거리 , 총시간 : " + this.getTotalDistance() + ", " + this.getTotalTime());
-		System.out.println("총비용 : " + this.getFare());
-		System.out.println("총환승 횟수 : " + this.getSectionSize());
+		//System.out.println("sx, sy= "+this.getSx()+","+this.getSy());
+		//System.out.println("ex, ey= "+this.getEx()+","+this.getEy());
+		//System.out.println("첫 정거장, 마지막 정거장 : " + this.getFirstStartStation() + " , " + this.getLastEndStation());
+		//System.out.println("총거리 , 총시간 : " + this.getTotalDistance() + ", " + this.getTotalTime());
+		//System.out.println("총비용 : " + this.getFare());
+		//System.out.println("총환승 횟수 : " + this.getSectionSize());
 		
 		for(int i=0; i<this.getSectionSize(); i++) {
 			InfoSectionPT b = this.getSection(i);
-			System.out.println("1:지하철, 2:버스 = " + b.getTrafficType());
-			System.out.println("시작, 끝 = " + b.getStartStation() + " , " + b.getEndStation());
-			System.out.println("거리, 시간 = " + b.getSectionDistance() + ", " + b.getSectionTime());
+			//System.out.println("1:지하철, 2:버스 = " + b.getTrafficType());
+			//System.out.println("시작, 끝 = " + b.getStartStation() + " , " + b.getEndStation());
+			//System.out.println("거리, 시간 = " + b.getSectionDistance() + ", " + b.getSectionTime());
 			if(b.getTrafficType()==1) {
-				System.out.println("지하철 노선 : " + b.getSubwayLine());	
+				//System.out.println("지하철 노선 : " + b.getSubwayLine());	
 			}else {
 				for(int j=0; j<b.getBusNoListSize(); j++) 
-					System.out.println("버스 : " + b.getBusNoList(j));
+					//System.out.println("버스 : " + b.getBusNoList(j));
 			}
 		}
 	}
