@@ -95,8 +95,8 @@ function getDataFourth(){
 				htmlStr += "<input type='radio' name='finalPosition' onClick='isChecked_L("
 					+ $(this).find("num").text()+");' value='"
 					+ $(this).find("num").text() + "'/> </div>";
-				htmlStr +="<div class='middle-content'> ";
-				htmlStr += "&nbsp;" + $(this).find('no').text() + ". " + $(this).find('data').text();		
+				htmlStr += "<div class='middle-content'><img src='img/mark";
+				htmlStr += $(this).find('no').text() + ".png' />" + $(this).find('data').text();			
 				htmlStr += "</div></div>";
 				
 				//마크 표시

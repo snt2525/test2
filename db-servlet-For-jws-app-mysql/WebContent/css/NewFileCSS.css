@@ -32,14 +32,14 @@ html, body {
 #asideTop {
 	position: relative;
 	overflow: auto;
-	height: 65%;
+	height: 58%;
 }
 
 
 #aisdeKeyword{
 	position:relative;
 	overflow:auto; 
-	height:10%;
+	height:15%;
 }
 
 
