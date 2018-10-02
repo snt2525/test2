@@ -55,7 +55,5 @@ function callResultCar() { //자동차
 			carFlag = 1;
 		}
 	});
-	var start = new Date().getTime();
-	while(new Date().getTime() < start + 3000);
 	location.replace("Last.html");
 }
