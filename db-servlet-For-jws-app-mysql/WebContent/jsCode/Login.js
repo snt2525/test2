@@ -19,7 +19,7 @@ function sessionCheck(i){
    // 만약 로그인 안되어있으면 로그인 페이지로 무조건 가기
    if(sessionStorage.getItem('id')==null){
       alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
-      location.href="indexLogin.html";
+      location.href="index.html";
       return 0;
    }else{
       print();     
