@@ -26,7 +26,7 @@ public class AddressDataServlet extends HttpServlet {
     Route[] r = new Route[20];
     Address[] aTmp = new Address[20];    		
     boolean[] apiFlag = new boolean[20];
-    boolean flag = false;
+    
     public AddressDataServlet() {
         super();
         for(int i=0; i<20; i++) {
@@ -109,7 +109,6 @@ public class AddressDataServlet extends HttpServlet {
             if(num== 0) {  //3번째 페이지에 오면 시작과 끝을 초기화 해준다.
             	System.out.println("초기화");
             	this.r[ID] = new Route(ad[ID].addressData.size());
-            	flag = false;  //api가 전부 콜이 됬는지
             	apiFlag[ID] = true;   
                // r[ID].Clear();
                 System.out.println("자동차 flag ="+ r[ID].carFlag+", 대중교통 flag="+ r[ID].ptFlag);
@@ -170,8 +169,7 @@ public class AddressDataServlet extends HttpServlet {
          case 13:  //결과 로딩이 끝났는지 
         	 int what = Integer.parseInt(request.getParameter("what"));
         	 System.out.println("13," +what +":"+ r[ID].ptFlag);
-        	 int result13 = 0;
-        	 flag = false;
+        	 int result13 = 0; 
         	 if(what == 0) { //대중교통
 	        		 try {
 	        			 while(true) {
@@ -227,8 +225,6 @@ public class AddressDataServlet extends HttpServlet {
            if(r[ID].dataTotal.isError()) {
         	   out.print("0"); // 에러 존재, 경로제공 안함
            }
-           if(how == 1)
-        	   flag = true; //다 호출이 끝남
            break;
          
          case 17:  //마크를 위한 호출
