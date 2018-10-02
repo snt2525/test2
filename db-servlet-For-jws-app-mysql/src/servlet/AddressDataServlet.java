@@ -227,7 +227,8 @@ public class AddressDataServlet extends HttpServlet {
            if(r[ID].dataTotal.isError()) {
         	   out.print("0"); // 에러 존재, 경로제공 안함
            }
-           flag = true; //다 호출이 끝남
+           if(how == 1)
+        	   flag = true; //다 호출이 끝남
            break;
          
          case 17:  //마크를 위한 호출
@@ -250,9 +251,6 @@ public class AddressDataServlet extends HttpServlet {
      	   break;
         	 
          case 20: // 대중교통 left 에 뿌려줌
-           while(true) {
-        		 if(flag) break;
-           }
     	   int how4 = Integer.parseInt(request.getParameter("how"));
     	   System.out.println("서블렛 20번 들어옴");
     	   out.print(r[ID].resultList(how4, ad[ID], sd[ID]));
