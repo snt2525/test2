@@ -8,8 +8,14 @@
 	<name>ServletDbTest</name>
 	
 	<properties>
+        <java.version>1.8</java.version>
+        <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
+        <version.war.plugin>2.1.1</version.war.plugin>
+        <version.surefire.plugin>2.10</version.surefire.plugin>
+        <jboss-servlet-api_3.0_spec.version>1.0.0.Final</jboss-servlet-api_3.0_spec.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <tomcat.version>8.0.35</tomcat.version>
     </properties>
 	
 	<build>
