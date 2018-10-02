@@ -37,7 +37,7 @@ $.ajax({
 			latlngPoint = new naver.maps.Point($(this).find('lat').text(),$(this).find('lng').text());	
 			map2 = new naver.maps.Map("map2", {
 		           center: new naver.maps.LatLng(latlngPoint.y, latlngPoint.x),
-		           zoom: 8,
+		           zoom: 10,
 		           size : new  naver.maps.Size($(window).width() - $("#aside").width(), $(window).height()), 
 		           mapTypeControl: true,
 		          

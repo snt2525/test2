@@ -104,12 +104,12 @@
 	<script type="text/javascript" src="jsCode/Result.js?ver=1"></script>
 	<script>
 		sessionCheck(1);		
-		checkSave();		
+		checkSave();	
+		callResult(); // 마커 그리기;
 		sleep();
-	  	callResult(); // 마커 그리기;
 	  	void sleep(){
 			var start = new Date().getTime();
-			while(new Date().getTime() < start + 2000)
+			while(new Date().getTime() < start + 2000);
 	  		callPolyLine(1); // 대중교통 폴리라인 그리기 
 			showResultCar(); // 왼쪽 자동차 뿌리기	  	
 	  	}
