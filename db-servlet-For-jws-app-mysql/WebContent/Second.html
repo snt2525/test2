@@ -16,28 +16,52 @@
 <body>
    <div id="container">
       <div id="aside">
+      	<!-- 네비게이션 바 같은 것  -->
+      	<div class="naviBar">
+      		<div style="display:flex;padding:10px;">
+	      		<div id="bar1">
+	      			<a href="Second.html">
+		        		<img style="margin-top:5px;width:130px;" src="img/logo_color.png"/>
+		        	</a>
+	      		</div>
+	      		<div id="bar2"></div> <!-- **님 환영합니다. -->      		
+        	</div>        	
+      	</div>
+      	<div style="display:flex;height:7%;background-color:rgb(255, 153, 000);">
+      		<div id="btnSaveList">
+      			<a href="#">
+	        		<img style="margin-top:15px;width:70px;" src="img/menu_save.png"/>
+	        	</a>
+      		</div>
+      		<div id="btnMainList">
+      			<a href="#">
+	        		<img  style="width:70px; margin-top:15px;" src="img/menu_select.png"/>
+        		</a>
+      		</div>      		
+     		 <div id="btnSearch" >
+     		 <form name="form" id="form" method="post">                       
+                  <input type="hidden" id="IDNum" name="IDNum" value="0"> 
+                  <input type="hidden" id="roadAddrPart1">
+                  <input type="hidden" id="jibunAddr" value="" /> 
+                  <input type="hidden" id="confmKey" name="confmKey"
+                     value="U01TX0FVVEgyMDE4MDcxMTIxMDYwMTEwODAwMzQ="> 
+            	
+    		 	   <a href="#" id="roadAddrPart1" onclick="goPopup();">
+    		 		<img style="width:70px;margin-top:15px;" src="img/menu_search.png"/>
+    		 	   </a>
+     		 	</form>
+     		 </div>
+      	</div>
          <div id="asideContent" class="left-sidebar">
             <!--  frameLeft -->
             <div id="asideTop">
-               <form name="addressBasket" id="addressBasket" method="post">
-                  	<div  id="btnMainList" class="left-content-second"><a href="#" title="여행지 선택 보기">
-		        		<img  style="width:40px;" src="img/list_gray.png" onmouseover="this.src='img/list_yellow.png';" onmouseout="this.src='img/list_gray.png';"/>
-		        	</a></div>              
-                  	<div  id="btnSaveList" class="left-content-second">
-                  	<a href="#" title="저장된 즐겨찾기 목록 보기">
-		        		<img  style="width:40px;" src="img/saveListGray.png" onmouseover="this.src='img/saveListYellow.png';" onmouseout="this.src='img/saveListGray.png';" />
-		        	</a></div>
+               <form name="addressBasket" id="addressBasket" method="post">                  	                        	
 		        	<div class="right-content-second"> 
 		        	<a href="#" id="resetBtn" name="resetBtn" title="여행지 초기화">
 		        	<img style="width:40px;" src="img/reset_gray.png" onmouseover="this.src='img/reset_orange.png';" onmouseout="this.src='img/reset_gray.png';"/></a></div>
-		        	<!-- <input type="hidden" class="btn btn-skin" value="Reset"  id="resetBtn" name="resetBtn"> </div> -->
 		        	
                	  <input type="hidden" id="IDNum" name="IDNum" value="0"> 
-                  <div id="list" name="list">
-                  
-                  <h3 class='headline'>여행지 선택</h3>
-                  
-                  </div>   <!-- 검색 결과 리스트 출력 -->
+                  <div id="list" name="list"></div>   <!-- 검색 결과 리스트 출력 -->
                </form>
             </div>
      
@@ -71,20 +95,6 @@
       </div>
       <div id="content">
          <div id="top">
-            <!-- NewFile -->
-            <div class="search">
-            	<form name="form" id="form" method="post">      
-                  <a href="#" id="roadAddrPart1" onclick="goPopup();"> 
-                     <img src="img/search_color.png" onmouseover="this.src='img/search_gray.png';"   onmouseout="this.src='img/search_color.png';" alt="goRoutePlan" />
-                  </a>
-                  <input type="hidden" id="IDNum" name="IDNum" value="0"> 
-                  <input type="hidden" id="roadAddrPart1">
-                  <input type="hidden" id="jibunAddr" value="" /> 
-                  <input type="hidden" id="confmKey" name="confmKey"
-                     value="U01TX0FVVEgyMDE4MDcxMTIxMDYwMTEwODAwMzQ="> 
-            	</form>
-            </div>
-
             <!-- x,y좌표를 찾기 위한 form -->
             <form name="form2" id="form2" method="post">
                <input type="hidden" id="confmKey" name="confmKey"
@@ -188,7 +198,7 @@
    <script type="text/javascript" src="jsCode/SearchApi.js?ver=1"></script>
    <script type="text/javascript" src="jsCode/ShowSavedList.js?ver=1"></script>
    <script>	
-   		document.getElementById("btnMainList").style.display="none";
+   		jQuery('#resetBtn').hide(); 
 	 	if(sessionCheck(1) == 1){
   			getData(); //초기화init()
     	 	getLocalSearchData();

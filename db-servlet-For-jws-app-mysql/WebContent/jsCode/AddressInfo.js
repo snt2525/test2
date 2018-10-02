@@ -55,11 +55,10 @@ function getData(){
 		dataType: "xml",
 		data: $("#getAddressData").serialize()+"&customerID="+customerID,
 		success: function(data){
-			var htmlStr = "<h3 class='headline'>여행지 선택</h3>";
-			document.getElementById("btnMainList").style.display="none";
-			document.getElementById("btnSaveList").style.display="block";
+			var htmlStr = "";
 			if(data!= null){
 				jQuery('#resetBtn').show();   //초기화 버튼 활성화
+				htmlStr = "<h3 class='headline'>여행지 선택</h3>";
 			}
 			else{
 				jQuery('#resetBtn').hide();  // 값이 없으면 버튼 감추기

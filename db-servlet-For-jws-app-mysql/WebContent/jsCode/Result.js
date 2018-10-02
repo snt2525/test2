@@ -24,6 +24,35 @@ var imgIconUrl = [
    'img/wayLast1.png' 
 ]
 
+var perv;
+$(function(){
+	prev = "#tabCar";
+   $('#tabCar').click(function(){
+	   $(prev).css("background-color","rgb(255, 153, 000)");
+	   prev = "#tabCar";
+	   $(prev).css("background-color","#FC7A00");
+	   //showList();
+	   document.resultPoly.how.value = "1";
+       document.resultLatLng.how.value="1";
+       callResult(); // 결과 부르기
+       callPolyLine(1); // 그리기
+       showResultCar(); // 옆에 결과 보여주기 
+	   
+   });
+   $('#tabPT').click(function(){
+	   $(prev).css("background-color","rgb(255, 153, 000)");
+	   prev = "#tabPT";
+	   $(prev).css("background-color","#FC7A00");
+	   //getData(); // main으로 돌아가면 모든 리스트 다시 보여주기
+	   document.resultPoly.how.value = "0";
+       document.resultLatLng.how.value="0";
+       callResult();
+       callPolyLine(0);
+       showResultPT();
+   });
+   
+ }); 
+
 function checkSave(){
    var id = sessionStorage.getItem("id");
    $.ajax({
@@ -76,26 +105,6 @@ function save(){
        }            
    });
    alert("'"+name+"' 이 성공적으로 저장 되었습니다.")
-}
-
-function tabClick(title){
-   if(title=="li-tab1"){ 
-      document.resultPoly.how.value = "0";
-      document.resultLatLng.how.value="0";
-      document.getElementById('tabPT').setAttribute('src', 'img/tab_pt_pressed.png');
-      document.getElementById('tabCar').setAttribute('src', 'img/tab_car.png');
-      callResult();
-      callPolyLine(0);
-      showResultPT();
-   }else{
-      document.resultPoly.how.value = "1";
-      document.resultLatLng.how.value="1";
-      document.getElementById('tabCar').setAttribute('src', 'img/tab_car_pressed.png');
-      document.getElementById('tabPT').setAttribute('src', 'img/tab_pt.png');
-      callResult(); // 결과 부르기
-      callPolyLine(1); // 그리기
-      showResultCar(); // 옆에 결과 보여주기 
-   }
 }
 
 function showResultPT(){
@@ -299,14 +308,14 @@ function showResultCar(){
 var polyline = new naver.maps.Polyline({
     map: map2,
     path: lineArray,
-    strokeWeight: 5,
+    strokeWeight: 3,
     strokeColor: 'green' //처음 대중교통 색상 맞추기
 });
 
 var polyline2 = new naver.maps.Polyline({
     map: map2,
     path: lineArray,
-    strokeWeight: 5,
+    strokeWeight: 3,
     strokeColor: 'green' //처음 대중교통 색상 맞추기
 });
 
@@ -334,14 +343,14 @@ function callPolyLine(title){ // 0:pt, 1:car
 	    	      polyline = new naver.maps.Polyline({
 					    map: map2,
 					    path: lineArray,
-					    strokeWeight: 5,
+					    strokeWeight: 3,
 					    strokeColor: 'green' 
 					});   
 	    	   }else{ // 자동차일때	    		  
 	    		   polyline = new naver.maps.Polyline({
 					    map: map2,
 					    path: lineArray,
-					    strokeWeight: 5,
+					    strokeWeight: 3,
 					    strokeColor: '#ff0000'
 					});    
 	    	   }
@@ -358,7 +367,7 @@ function showPolyLine_index(num){
 	polyline2 = new naver.maps.Polyline({
 	    map: map2,
 	    path: lineArrayTmp[num],
-	    strokeWeight: 5,
+	    strokeWeight: 3,
 	    strokeColor: '#000000'
 	}); 
 }

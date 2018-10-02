@@ -21,6 +21,7 @@ html, body {
 	width: 25%;
 	border-right: 1px solid #a7a7a7;
 	background-color: #fff;
+	box-shadow: 0px 0px 3px gray;
 }
 
 #asideContent {
@@ -31,20 +32,20 @@ html, body {
 #asideTop {
 	position: relative;
 	overflow: auto;
-	height: 70%;
+	height: 65%;
 }
 
 
 #aisdeKeyword{
 	position:relative;
 	overflow:auto; 
-	height:15%;
+	height:10%;
 }
 
 
 #asideBottom {
 	position: relative;
-	height: 10%;
+	height: 5%;
 }
 
 #content {
@@ -70,6 +71,7 @@ html, body {
 	left: 25%;
 	height: 330px;
 	overflow: auto;
+	box-shadow: 0px 0px 5px gray;
 }
 
 div {
@@ -156,7 +158,20 @@ hr.lastHr{
 	border:  3px double gray;
 }
 
+#btnSaveList{
+	flex:1; 
+	text-align:center;
+}
 
+#btnMainList{
+	flex:1;  
+	text-align:center;
+	background-color: #FC7A00;
+}
+#btnSearch{
+	flex:1; 
+	text-align:center;
+}
 
 <!-- image info 창 css -->
 .info-first{

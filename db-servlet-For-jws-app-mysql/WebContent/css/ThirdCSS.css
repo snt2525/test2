@@ -22,6 +22,7 @@ html, body {
 	width: 25%;
 	border-right: 1px solid #a7a7a7;
 	background-color: #fff;
+	box-shadow: 0px 0px 3px gray;
 }
 
 #asideLast {
@@ -33,6 +34,7 @@ html, body {
 	border-right: 1px solid #a7a7a7;
 	background-color: #fff;
 	overflow: auto;
+	box-shadow: 0px 0px 3px gray;
 }
 
 #asideContent {
@@ -44,7 +46,7 @@ html, body {
 #asideTop {
 	position: relative;
 	overflow: auto;
-	height: 85%;
+	height: 80%;
 }
 
 #asideBottom {
@@ -57,6 +59,19 @@ html, body {
 	position: relative;
 	left: 25%;
 	overflow: hidden;
+}
+
+#tabCar{
+	background-color: #FC7A00;
+	float:left;
+	width:50%;
+	padding-bottom:6px;
+}
+
+#tarPT{
+	float:right;
+	width:50%;
+	display:inline-block;
 }
 
 div {

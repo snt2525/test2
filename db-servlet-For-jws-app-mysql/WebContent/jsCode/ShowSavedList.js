@@ -4,19 +4,28 @@ $.ajaxSetup({
 });
 
 
+var prev;
 // 즐겨찾기 버튼 누르면 리스트 보여주는 함수로 가기
 $(function(){
+	prev = "#btnMainList";
    $('#btnSaveList').click(function(){
 	   // 즐겨찾기 버튼 감추고 리스트 버튼 보이게 하기 
-	   document.getElementById("btnMainList").style.display="block";
-	   document.getElementById("btnSaveList").style.display="none";
+	   $(prev).css("background-color","rgb(255, 153, 000)");
+	   prev = "#btnSaveList";
+	   $(prev).css("background-color","#FC7A00");
 	   showList();
    });
    $('#btnMainList').click(function(){
 	   // 리스트 버튼 감추고 즐겨찾기 버튼 보여주기
-	   document.getElementById("btnMainList").style.display="none";
-	   document.getElementById("btnSaveList").style.display="block";
+	   $(prev).css("background-color","rgb(255, 153, 000)");
+	   prev = "#btnMainList";
+	   $(prev).css("background-color","#FC7A00");
 	   getData(); // main으로 돌아가면 모든 리스트 다시 보여주기
+   });
+   $('#btnSearch').click(function(){
+	   $(prev).css("background-color","rgb(255, 153, 000)");
+	   prev = "#btnSearch";
+	   $(prev).css("background-color","#FC7A00");
    });
  }); 
 
@@ -32,7 +41,7 @@ function toggleLayer(layer)
 var rID = "";
 function showList(){ // 저장된 데이터 리스트 보여주는 함수
 	$("#resetBtn").attr("type","hidden");
-	
+	alert("showList");
 	// addressServlet 6번으로 가기
 	$.ajax({
 		url:"/AddressDataServlet",
@@ -95,8 +104,8 @@ function goMain(rID){
 		dataType: "text", 
 		data: "menuIndex=19&customerID="+customerID+"&cID="+id+"&rID="+rID,
 		success: function(data){
-			document.getElementById("btnMainList").style.display="none";
-		   document.getElementById("btnSaveList").style.display="block";
+			//document.getElementById("btnMainList").style.display="none";
+		   //document.getElementById("btnSaveList").style.display="block";
 			getData();
 		}, 		
 	    error: function (data) {
