@@ -12,7 +12,7 @@ public class LocalSearchImg {
 	 public String clientSecret = "d4nYetPHwT";
 	 
 	 public String getImage(String imgTitle,int num) {
-	      //System.out.println("이미지 불러오기");
+	      ////System.out.println("이미지 불러오기");
 	      try {
 	         String text = URLEncoder.encode(imgTitle, "utf-8");
 	         // 여기에 있는 display 값을 조정함에 따라 사진을 긁어오는게 달라진다. 
@@ -22,7 +22,7 @@ public class LocalSearchImg {
 	         con.setRequestMethod("GET");
 	         con.setRequestProperty("X-Naver-Client-Id", clientId);
 	         con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
-	         //System.out.println("URL : " + apiURL);
+	         ////System.out.println("URL : " + apiURL);
 	         int responseCode = con.getResponseCode();
 	         BufferedReader br;
 	         if (responseCode == 200) {
@@ -40,11 +40,11 @@ public class LocalSearchImg {
 	         br.close();
 	         con.disconnect();
 	         
-	         //System.out.println(sb);
+	         ////System.out.println(sb);
 	         String data = sb.toString();	         
 	         String[] array;
 	         array = data.split("\"");         
-	       //  System.out.println("이미지 개수 : " + array.length);
+	       //  //System.out.println("이미지 개수 : " + array.length);
 	         if(num == 0) {  //데이터 추천의 이미지를 보여주는 경우
 		         for (int i = 0; i < array.length; i++) {
 		            if (array[i].equals("thumbnail") && array[i+2]!=null) 
@@ -63,11 +63,11 @@ public class LocalSearchImg {
 			            }
 	         	}	 
 	        	 result += "</UrlData>";         	
-	         	System.out.println(result);
+	         	//System.out.println(result);
 	         	return result;
 	         }
 	      }catch(Exception e) {
-	         System.out.println(e);
+	         //System.out.println(e);
 	      }
 	      return null;
 	   }

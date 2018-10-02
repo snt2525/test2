@@ -18,14 +18,14 @@ public class InfoSectionPT {
 	}
 
 	public void print(int idx) {
-		System.out.println(idx+"번쨰 데이터 출력");
-		System.out.println("trafficType : " + trafficType);
-		System.out.println("startStation : " + startStation);
-		System.out.println("endStation : " + endStation);
-		System.out.println("sectionDistance : " + sectionDistance);
-		System.out.println("sectionTime : " + sectionTime);
-		System.out.println("subwayLine : " + subwayLine);
-		System.out.println("sectionStationCount : " + sectionStationCount);
+		//System.out.println(idx+"번쨰 데이터 출력");
+		//System.out.println("trafficType : " + trafficType);
+		//System.out.println("startStation : " + startStation);
+		//System.out.println("endStation : " + endStation);
+		//System.out.println("sectionDistance : " + sectionDistance);
+		//System.out.println("sectionTime : " + sectionTime);
+		//System.out.println("subwayLine : " + subwayLine);
+		//System.out.println("sectionStationCount : " + sectionStationCount);
 	}
 	public String getSubwayCode() {
 		return subwayCode;
