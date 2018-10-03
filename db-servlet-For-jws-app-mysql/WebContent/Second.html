@@ -26,17 +26,17 @@
 	      		</div>
 	      		<div id="bar2"></div> <!-- **님 환영합니다. -->
         	</div> 
-        	      	
+        	<!-- <hr class="style=four">       	 -->
       	</div>
       	<div style="display:flex;height:7%;background-color:rgb(255, 153, 000);">
       		<div id="btnSaveList">
       			<a href="#">
-	        		<img style="margin-top:10px;width:60px;" src="img/menu_save.png"/>
+	        		<img style="margin-top:10px;width:35%;" src="img/menu_save.png"/>
 	        	</a>
       		</div>
       		<div id="btnMainList">
       			<a href="#">
-	        		<img  style="width:60px; margin-top:10px;" src="img/menu_select.png"/>
+	        		<img style="margin-top:10px;width:35%;"  src="img/menu_select.png"/>
         		</a>
       		</div>      		
      		 <div id="btnSearch" >
@@ -48,7 +48,7 @@
                      value="U01TX0FVVEgyMDE4MDcxMTIxMDYwMTEwODAwMzQ="> 
             	
     		 	   <a href="#" id="roadAddrPart1" onclick="goPopup();">
-    		 		<img style="width:60px;margin-top:10px;" src="img/menu_search.png"/>
+    		 		<img style="margin-top:10px;width:35%;"  src="img/menu_search.png"/>
     		 	   </a>
      		 	</form>
      		 </div>
@@ -59,7 +59,7 @@
                <form name="addressBasket" id="addressBasket" method="post">                  	                        	
 		        	<div class="right-content-second"> 
 		        	<a href="#" id="resetBtn" name="resetBtn" title="여행지 초기화">
-		        	<img style="width:40px;" src="img/reset_gray.png" onmouseover="this.src='img/reset_orange.png';" onmouseout="this.src='img/reset_gray.png';"/></a></div>
+		        	<img style="width:30px;" src="img/reset_gray.png" onmouseover="this.src='img/reset_orange.png';" onmouseout="this.src='img/reset_gray.png';"/></a></div>
 		        	
                	  <input type="hidden" id="IDNum" name="IDNum" value="0"> 
                   <div id="list" name="list"></div>   <!-- 검색 결과 리스트 출력 -->
@@ -69,7 +69,7 @@
             
             <div id="aisdeKeyword" >
             	<hr class="style-two">
-            	<div id="message" name="message" style="font-weight:500;">가이드 키워드입니다. 클릭한 지역의 키워드로 오른쪽에 결과를 볼 수 있습니다.</div>
+            	<div id="message" name="message" style="font-size:80%; font-weight:500;">가이드 키워드입니다. 클릭한 지역의 키워드로 오른쪽에 결과를 볼 수 있습니다.</div>
             	<div style="margin-top:10px;"> <!-- 여기에 다양한 키워드 넣기 -->
             		<form name="keyword" id="keyword" method="post">
             			<input type="hidden" id="menuIndex" name="menuIndex" value="3"/>
@@ -79,7 +79,6 @@
             			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="자연">
             			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="박물관">
             			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="행사">
-            			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="전시회">
             			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="명소">
             			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="호텔">
             			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="쇼핑">

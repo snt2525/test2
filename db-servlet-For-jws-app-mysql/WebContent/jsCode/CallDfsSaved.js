@@ -10,6 +10,7 @@ function start() {
 	$.ajax({ //dfs, 결과 순서 다시 재 호출
 		type : "POST",
 		url : "/AddressDataServlet",
+		async:false,
 		dataType : "html",
 		data : $("#finish1").serialize()+"&customerID="+customerID+"&rID="+rID+"&cID="+id, //0
 		success : function() {
