@@ -26,6 +26,7 @@
 					<div id="bar2"></div>
 					<!-- **님 환영합니다. -->
 				</div>
+				
 			</div>
 			<div id="asideContent2">
 				<!--  frameLeft -->
@@ -57,6 +58,21 @@
 					</div>
 
 					<div style="padding: 20px;">
+					<form id="showCar" name="showCar" method="post">
+							<input type="hidden" id="menuIndex" name="menuIndex" value="20">
+							<input type="hidden" id="how" name="how" value="1">
+							<div id="resultCarList" name="resultCarList">
+								<div><img style="margin-top:10%; margin-bottom:5%; width:90%;"src="img/lastImg.png" /></div>
+								<div>
+									<h5 style='font-size:13px;'>[원하시는 교통을 선택해주세요.]</h5>
+									<p>자동차 탭 : 자동차, 택시</p>
+									<p>대중교통 탭 : 버스, 지하철<br></p>
+									<p>※ 데이터가 다 도달하지 않았을 경우 탭을 다시 눌러주세요. </p>
+								</div>
+							</div>
+							<!-- 자동차 정보 뿌려주기 -->
+						</form>
+						
 						<form id="showPT" name="showPT" method="post">
 							<input type="hidden" id="menuIndex" name="menuIndex" value="20">
 							<input type="hidden" id="how" name="how" value="0">
@@ -64,12 +80,7 @@
 							<!-- 대중교통 정보 뿌려주기 -->
 						</form>
 
-						<form id="showCar" name="showCar" method="post">
-							<input type="hidden" id="menuIndex" name="menuIndex" value="20">
-							<input type="hidden" id="how" name="how" value="1">
-							<div id="resultCarList" name="resultCarList"></div>
-							<!-- 자동차 정보 뿌려주기 -->
-						</form>
+						
 					</div>
 				</div>
 			</div>

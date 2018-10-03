@@ -84,7 +84,7 @@ h1.font-light, h2.font-light, h3.font-light, h4.font-light, h5.font-light,
 }
 
 hr.style-four {
-    height: 12px;
+   height: 12px;
     border: 0;
     box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
 }
@@ -130,7 +130,7 @@ p.lead {
 
 .navImg{
 	margin-top:5px;
-	width:130px;
+	width:70%;
 }
 a {
    color: #666;
@@ -178,6 +178,7 @@ blockquote strong {
 	text-align:left;
 	margin-top:20px;
 	color:gray;
+	font-size:40%;
 	font-weight:500;
 }
 #bar3{
@@ -189,7 +190,7 @@ blockquote strong {
 	width:100%;
 	height:7%;
 	background-color: white;
-	box-shadow: 0px -2px 5px gray inset;
+	box-shadow: 0px -2px 5px gray inset; 
 }
 
 .light {
@@ -198,7 +199,7 @@ blockquote strong {
 
 /* left bar  */
 .headline {
-   font-size: 25px;
+   font-size: 100%;
    font-weight: 700;
    text-align: left;
    margin-top: 5%;
@@ -236,8 +237,9 @@ a.delete-factor {
    flex:1;
 }
 
+
 .middle-content {
-   font-size: 20px;
+   font-size: 80%;
    font-weight: 700;
    margin-bottom: 5%;
    width: 85%;
@@ -246,6 +248,21 @@ a.delete-factor {
    word-break: break-all;
 }
 
+.middle-content2 {
+   font-size: 100%;
+   font-weight: 700;
+   margin-bottom: 5%;
+   width: 85%;
+   float:center;
+   flex:8;
+   vertical-align:middle;
+   word-break: break-all;
+}
+.leftMarkSize{
+	width:25px;
+	margin-left:10px;
+	margin-right:15px;
+}
 .right-content {
 	margin-left:10px;
    float: right;
@@ -275,7 +292,7 @@ a.delete-factor {
 }
 
 .middle-content1 {
-   font-size: 10px;
+   font-size: 100%;
    font-weight: 500;
    margin-bottom: 5%;
    margin-left:50px;
@@ -418,6 +435,7 @@ a.delete-factor {
 }
 .btnKeyword {
 	border-radius: 10px;
+	
 	position: relative;
 	display: inline-block;
 	outline: none;
@@ -428,7 +446,7 @@ a.delete-factor {
 	letter-spacing: 1px;
 	font-weight: 400;
 	text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
-	font-size: 14px;
+	font-size: 70%;
 	cursor:pointer;
 }
 .btn.btn-noradius {
