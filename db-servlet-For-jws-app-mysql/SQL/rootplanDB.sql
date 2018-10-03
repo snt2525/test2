@@ -1,4 +1,4 @@
-create user `rootplan`@`&` identified by 'rootplan';
+create user `rootplan`@`%` identified by 'rootplan';
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = 'Asia/Seoul';
