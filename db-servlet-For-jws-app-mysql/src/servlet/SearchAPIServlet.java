@@ -66,9 +66,14 @@ public class SearchAPIServlet extends HttpServlet {
 				  break;
 				  
 			  case 4: 
-				  String tmp = request.getParameter("name");
+				  String name = request.getParameter("name");
 				  ShowLocalSearch ls2 = new ShowLocalSearch("1","2");
-				  out.print(ls2.test(tmp));
+				  out.print(ls2.test(name));
+				  break;
+				  
+			  case 5:
+				  String name2 = "용인시";
+				  
 				  break;
 		  }
    }

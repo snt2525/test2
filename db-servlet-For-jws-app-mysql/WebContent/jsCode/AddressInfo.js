@@ -23,7 +23,7 @@ function test(){
 	$.ajax({
 	      url : "/CallSearchLocalApi", //인터넷망
 	      type : "post",
-	      data :"name="+customerID+"&menuIndex="+4,
+	      data :"name="+"짜증난다 그만좀하자"+"&menuIndex="+4,
 	      dataType : "html",
 	      success : function(data) {
 	    	  alert(data);
