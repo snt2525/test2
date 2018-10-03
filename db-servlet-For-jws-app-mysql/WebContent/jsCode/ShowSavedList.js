@@ -41,7 +41,7 @@ function toggleLayer(layer)
 var rID = "";
 function showList(){ // 저장된 데이터 리스트 보여주는 함수
 	$("#resetBtn").attr("type","hidden");
-	alert("showList");
+	//alert("showList");
 	// addressServlet 6번으로 가기
 	$.ajax({
 		url:"/AddressDataServlet",
@@ -73,7 +73,7 @@ function showList(){ // 저장된 데이터 리스트 보여주는 함수
 				htmlStr += "</div></div>";
 				tmpId++;
 			}) 
-			if(check==0) htmlStr += "<div><h5>저장된 경로가 없습니다.</h5></div>";
+			if(check==0) htmlStr += "<div><h5 style='font-size:80%;'>저장된 경로가 없습니다.</h5></div>";
 			$("#list").html(htmlStr);
 		}, 		
 	    error: function (data) {
@@ -104,9 +104,10 @@ function goMain(rID){
 		dataType: "text", 
 		data: "menuIndex=19&customerID="+customerID+"&cID="+id+"&rID="+rID,
 		success: function(data){
-			//document.getElementById("btnMainList").style.display="none";
-		   //document.getElementById("btnSaveList").style.display="block";
-			getData();
+		   $(prev).css("background-color","rgb(255, 153, 000)");
+		   prev = "#btnMainList";
+		   $(prev).css("background-color","#FC7A00");
+		   getData(); // main으로 돌아가면 모든 리스트 다시 보여주기
 		}, 		
 	    error: function (data) {
 	    	console.log("선택하기로 가는거 넘어가기 실패");

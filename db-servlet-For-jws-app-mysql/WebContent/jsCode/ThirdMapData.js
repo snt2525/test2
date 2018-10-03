@@ -123,8 +123,8 @@ function getDataThird(){
 				htmlStr += "<input type='radio' name='startPosition' onClick='isChecked_S("
 					+ $(this).find("num").text()+");' value='"
 					+ $(this).find("num").text() + "'/> </div>";
-				htmlStr += "<div class='middle-content'> <img src='img/mark";
-				htmlStr += $(this).find('no').text() + ".png' />" + "&nbsp;"+  $(this).find('data').text();	
+				htmlStr += "<div class='middle-content'> <img class='leftMarkSize' src='img/mark";
+				htmlStr += $(this).find('no').text() + ".png' />" + $(this).find('data').text();	
 				htmlStr += "</div></div>";
 				//마크 표시
 				var latlngPoint = new naver.maps.Point($(this).find('lat').text(),$(this).find('lng').text());
