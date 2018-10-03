@@ -24,7 +24,7 @@ function test(){
 	      url : "/CallSearchLocalApi", //인터넷망
 	      type : "post",
 	      data :"name="+"짜증난다 그만좀하자"+"&menuIndex="+4,
-	      dataType : "html",
+	      dataType : "text",
 	      success : function(data) {
 	    	  alert(data);
 	      },

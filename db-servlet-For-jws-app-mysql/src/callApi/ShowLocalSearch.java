@@ -73,6 +73,46 @@ public class ShowLocalSearch {
       return null;
    }
    
+   // 후에 함수로 변경 : 매개변수(findLocation) : 시주소
+   public String getRecommendData2() {
+	   String data = "";
+	   //System.out.println("keyword : " + keyword);
+       ld.clear();
+       display = 20;
+        try {
+        	//System.out.println("검색 호출");
+            String text = URLEncoder.encode(findLocation + " " + keyword, "utf-8");
+            String apiURL = "https://openapi.naver.com/v1/search/local?query=" + text + "&display=" + display + "&";
+            URL url = new URL(apiURL);
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            con.setRequestProperty("X-Naver-Client-Id", clientId);
+            con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
+            //System.out.println("URL : " + apiURL);
+            int responseCode = con.getResponseCode();
+            BufferedReader br;
+            if (responseCode == 200) {
+                br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            } else {
+                br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+            }
+            sb = new StringBuilder();
+            String line;
+ 
+            while ((line = br.readLine()) != null) {
+                sb.append(line + "\n");
+            }
+ 
+            br.close();
+            con.disconnect();
+            ////System.out.println("sb: "  + sb); 
+            data = sb.toString();
+        } catch (Exception e) {
+            //System.out.println(e);
+        }
+        return data;
+    }
+   
 
    // 후에 함수로 변경 : 매개변수(findLocation) : 시주소
    public LinkedList<Location> getRecommendData() {
@@ -82,8 +122,7 @@ public class ShowLocalSearch {
         try {
         	//System.out.println("검색 호출");
             String text = URLEncoder.encode(findLocation + " " + keyword, "utf-8");
-            String text1 = URLEncoder.encode(text, "MS949");
-            String apiURL = "https://openapi.naver.com/v1/search/local?query=" + text1 + "&display=" + display + "&";
+            String apiURL = "https://openapi.naver.com/v1/search/local?query=" + text + "&display=" + display + "&";
             URL url = new URL(apiURL);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
