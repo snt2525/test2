@@ -3,5 +3,5 @@
 <Context>
 	<Resource name="jdbc/mysqldb" auth="Container" type="javax.sql.DataSource"
 		username="rootplan" password="rootplan" driverClassName="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://mysql:3306/rootplan?serverTimezone=Asia/Seoul&amp;verifyServerCertificate=false&amp;useSSL=false" />
+		url="jdbc:rootplan-mysql://mysql:3306/rootplan?serverTimezone=Asia/Seoul&amp;verifyServerCertificate=false&amp;useSSL=false" />
 </Context>
