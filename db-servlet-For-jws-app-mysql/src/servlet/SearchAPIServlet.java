@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import callApi.LocalSearch;
 import callApi.LocalSearchImg;
+import callApi.ShowLocalSearch;
 import dao.LocationDataManager;
 
 
@@ -62,7 +63,13 @@ public class SearchAPIServlet extends HttpServlet {
 				  result2 = img.getImage(localName, 1);
 				  ////System.out.println(result2);
 				  out.print(result2);
-				  break;				
+				  break;
+				  
+			  case 4: 
+				  String tmp = request.getParameter("name");
+				  ShowLocalSearch ls2 = new ShowLocalSearch("1","2");
+				  out.print(ls2.test(tmp));
+				  break;
 		  }
    }
    

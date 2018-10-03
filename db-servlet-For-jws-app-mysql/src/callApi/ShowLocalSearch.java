@@ -27,6 +27,9 @@ public class ShowLocalSearch {
     	img = new LocalSearchImg(); //이미지 호출API
         findLocation = si;   //지도에서 받은 시의 위치를 넣어준다.
     } 
+    public String test(String t) {
+    	return t;
+    }
    public String getImage(String imgTitle) {
       //System.out.println("이미지 불러오기");
       try {
@@ -85,7 +88,7 @@ public class ShowLocalSearch {
             con.setRequestMethod("GET");
             con.setRequestProperty("X-Naver-Client-Id", clientId);
             con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
-          //  //System.out.println("URL : " + apiURL);
+            //System.out.println("URL : " + apiURL);
             int responseCode = con.getResponseCode();
             BufferedReader br;
             if (responseCode == 200) {
