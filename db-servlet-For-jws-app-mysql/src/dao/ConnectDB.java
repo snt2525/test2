@@ -220,10 +220,14 @@ public class ConnectDB {
 				result += "<rID>" + rs.getString(1) + "</rID>";
 				int size = rs.getInt(2); //사이즈
 				result += "<size>" + Integer.toString(size) + "</size>";
-				result += "<name>" + rs.getString(4) + "</name>";
+				String name = rs.getString(4);
+				name = URLDecoder.decode(name,"utf-8");
+				result += "<name>" + name + "</name>";
 				int addressCnt = 5;
 				for(int i = 0;i<size;i++) {
-					result += "<address"+Integer.toString(i)+">"+ rs.getString(addressCnt) +"</address"+Integer.toString(i)+">";
+					String address = rs.getString(addressCnt);
+					address = URLDecoder.decode(address,"utf-8");
+					result += "<address"+Integer.toString(i)+">"+ address +"</address"+Integer.toString(i)+">";
 					addressCnt += 3;
 				}
 				result += "</Data>";
@@ -236,6 +240,9 @@ public class ConnectDB {
 			//System.out.println("DB 연동 안됨");
 			//System.out.println("SQLException: " + SQLex.getMessage());
 			//System.out.println("SQLState: " + SQLex.getSQLState());
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		////System.out.println("result2 : " + resultStr);
 		return resultStr;
@@ -276,7 +283,9 @@ public class ConnectDB {
 				int addressCnt = 5;
 				int latCnt = 6, lngCnt = 7;
 				for(int i =0;i<size;i++) {
-					tmpIndex.setAddress(i, rs.getString(addressCnt));
+					String address = rs.getString(addressCnt);
+					address = URLDecoder.decode(address,"utf-8");
+					tmpIndex.setAddress(i, address);
 					tmpIndex.setLat(i, Double.parseDouble(rs.getString(latCnt)));
 					tmpIndex.setLng(i, Double.parseDouble(rs.getString(lngCnt)));
 					addressCnt += 3;
@@ -290,6 +299,9 @@ public class ConnectDB {
 		}catch (SQLException SQLex) {
 			//System.out.println("CallDBData_INDEX 오류발생");
 			//System.out.println("SQLException: " + SQLex.getMessage());
+		} catch (UnsupportedEncodingException e) {			
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}					
 		return tmpIndex;
 	}
