@@ -100,7 +100,8 @@ public class ApiPTSearch {
             int responseCode = con.getResponseCode();
             BufferedReader br;
             if (responseCode == 200) {         
-               br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+              // br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            	br = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
             } else {
                //에러가 발생하면 걷기로 대체
                int tmpTime = 0;
@@ -222,9 +223,11 @@ public class ApiPTSearch {
             int responseCode = con.getResponseCode();
             BufferedReader br;
             if (responseCode == 200) {
-               br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+               //br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            	br = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
             } else {
-               br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+               //br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+            	br = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
                
                //System.out.println("대중교통 실패");
             }
