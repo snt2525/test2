@@ -36,7 +36,7 @@ public class ApiCarSearch {
    
    // 차 api 이차원 배열 돌면서 몇번쨰인지 보기 
    public void carApi() {
-	   ////System.out.println("carApi 들어옴");
+	   System.out.println("carApi start");
 	   int len = ad.size();
 	   try {
 		   for(int i=0; i<len-1; i++) {
@@ -53,7 +53,7 @@ public class ApiCarSearch {
 
    // carApi에서 호출당해, 자동차 호출
    public void callApi(int sno, int eno, double sx, double sy, double ex, double ey) {
-	   //System.out.println("callApi 들어옴");
+	   System.out.println("callApi call!");
 	   CalculateDist calDist = new CalculateDist();
 	   double distanceMeter =  calDist.distance(sx, sy, ex, ey, "meter"); // 직선거리 구하기     
        if(distanceMeter <= 800) {     	   // 직선거리 800m이하이면 걷기로 넘기기

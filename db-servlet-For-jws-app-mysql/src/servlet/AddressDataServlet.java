@@ -46,9 +46,9 @@ public class AddressDataServlet extends HttpServlet {
       response.setContentType("text/html;charset=UTF-8");
       
       PrintWriter out = response.getWriter();
-      //System.out.println("연결: "+ request.getParameter("menuIndex"));
+      System.out.println("connect addressDataServlet: "+ request.getParameter("menuIndex"));
       int optionNum = Integer.parseInt(request.getParameter("menuIndex"));
-      ////System.out.println("customerID : "+request.getParameter("customerID"));
+      System.out.println("customerID : "+request.getParameter("customerID"));
       int ID = Integer.parseInt(request.getParameter("customerID"));
       
       
@@ -220,7 +220,7 @@ public class AddressDataServlet extends HttpServlet {
             
          case 16:  //대중교통 dfs or 마커 결과 재호출 
            int how = Integer.parseInt(request.getParameter("how"));
-           //System.out.println("16번 연결");            
+           System.out.println("16 / addressServlet call");            
            r[ID].callShortestPath(sd[ID].GetStartData(),sd[ID].GetLastData(), sd[ID].isSame(), how); // 자동차 1, 대중교통  0     
            if(r[ID].dataTotal.isError()) {
         	   System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$4");

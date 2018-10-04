@@ -17,7 +17,7 @@ public class ApiWalkSearch{
 
    // dfs를 위한 거리 값 가져올떄
    public int walkApi(int sno, int eno, double sx, double sy, double ex, double ey) {
-	   //System.out.println("ddddddddddddd걷기");
+	   System.out.println("walk call!");
       int findTime = 0;
       try {
           String apiURL = "https://api2.sktelecom.com/tmap/routes/pedestrian?version=1&format=xml&startX="
@@ -65,6 +65,7 @@ public class ApiWalkSearch{
    
    // 대중교통 걷기 재호출시
    public InfoPT resultWalkPTApi(double sx, double sy, double ex, double ey) { // 대중교통 걷기 전용
+	   System.out.println("walk recall!");
 	   InfoPT infopt = new InfoPT();
 	   
 	   try {
