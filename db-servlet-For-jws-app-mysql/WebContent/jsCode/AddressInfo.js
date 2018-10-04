@@ -72,6 +72,9 @@ function getData(){
 		success: function(data){
 			var htmlStr = "";
 			if(data!= null){
+				$(prev).css("background-color","rgb(255, 153, 000)");
+			    prev = "#btnMainList";
+				$(prev).css("background-color","#FC7A00");
 				jQuery('#resetBtn').show();   //초기화 버튼 활성화
 				htmlStr = "<h5 class='headline'>여행지 선택</h5>";
 				$(data).find("Address").each(function(){
