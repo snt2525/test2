@@ -16,10 +16,9 @@ $(function(){
 	   showList();
    });
    $('#btnMainList').click(function(){
-	   // 리스트 버튼 감추고 즐겨찾기 버튼 보여주기
 	   $(prev).css("background-color","rgb(255, 153, 000)");
-	   prev = "#btnMainList";
-	   $(prev).css("background-color","#FC7A00");
+	    prev = "#btnMainList";
+		$(prev).css("background-color","#FC7A00");
 	   getData(); // main으로 돌아가면 모든 리스트 다시 보여주기
    });
    $('#btnSearch').click(function(){
@@ -41,18 +40,16 @@ function toggleLayer(layer)
 var rID = "";
 function showList(){ // 저장된 데이터 리스트 보여주는 함수
 	$("#resetBtn").attr("type","hidden");
-	alert("showList");
 	// addressServlet 6번으로 가기
+	
+	var htmlStr ="<h3 class='headline'>저장된 경로</h3>";
+	var size=0, tmpId=0, check=0;
+	
 	$.ajax({
 		url:"/AddressDataServlet",
 		dataType: "xml", 
 		data: "menuIndex=6&customerID="+customerID+"&cID="+sessionStorage.getItem("id"),
 		success: function(data){
-			var htmlStr ="<h3 class='headline'>저장된 경로</h3>";
-			var size=0, tmpId=0, check=0;
-			document.getElementById("resetBtn").style.display="block";
-			document.getElementById("resetBtn").style.display="none";
-			
 			$(data).find("Data").each(function(){
 				check=1;
 				htmlStr += "<div><hr class='two'></div>"
@@ -72,14 +69,16 @@ function showList(){ // 저장된 데이터 리스트 보여주는 함수
 				htmlStr += "</div>";	
 				htmlStr += "</div></div>";
 				tmpId++;
-			}) 
-			if(check==0) htmlStr += "<div><h5>저장된 경로가 없습니다.</h5></div>";
-			$("#list").html(htmlStr);
+			})
+			
 		}, 		
 	    error: function (data) {
 	    	console.log("저장한 리스트 가져오기 실패");
-    	}				
+    	}
 	});
+	
+	if(check==0) htmlStr += "<div><h5>저장된 경로가 없습니다.</h5></div>";
+	$("#list").html(htmlStr);
 }
 
 function goLoading(rID){

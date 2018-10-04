@@ -17,7 +17,7 @@ import dto.TimeMethod;
 public class ApiPTSearch {
    CalculateDist cd = new CalculateDist();
    StringBuilder sb;
-   String key = "H7Ata/awWTzygy5uX2apoQ";
+   String key = "5FtIuAS9YmPfOD56TV5NHqYE6EivPWAAIBCZcy6V72c";
    LinkedList<dto.Address> ad;
    DataTotal dataTotal;
    // 이차원 배열을 Route.java에다가 넣어주기
@@ -100,7 +100,7 @@ public class ApiPTSearch {
             int responseCode = con.getResponseCode();
             BufferedReader br;
             if (responseCode == 200) {         
-               br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+               br = new BufferedReader(new InputStreamReader(con.getInputStream(),"UTF-8"));
             } else {
                //에러가 발생하면 걷기로 대체
                int tmpTime = 0;
@@ -222,9 +222,9 @@ public class ApiPTSearch {
             int responseCode = con.getResponseCode();
             BufferedReader br;
             if (responseCode == 200) {
-               br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+               br = new BufferedReader(new InputStreamReader(con.getInputStream(),"utf-8"));
             } else {
-               br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+               br = new BufferedReader(new InputStreamReader(con.getErrorStream(),"utf-8"));
                
                //System.out.println("대중교통 실패");
             }

@@ -1,4 +1,7 @@
 package dao;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -144,15 +147,31 @@ public class ConnectDB {
 	}
 	
 	public void SaveData(DBRouteData data) { //데이터 저장		
+		String name = data.getName();
+		String[] address = new String[7];
+		for(int i=0;i<7;i++) 
+			address[i] = data.getAddress(i);
+		
+		try {
+			name = URLEncoder.encode(name, "utf-8");
+			for(int i = 0;i<7;i++) {
+				if(!address[i].equals("")) {
+					address[i] = URLEncoder.encode(address[i], "utf-8");
+				}
+			}
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
 		String sqlStr = "INSERT INTO route VALUES('"
-		        +data.getRid()+"',"+data.getDatasize()+",'"+data.getCid()+"','"+data.getName()+"','"
-		        +data.getAddress(0)+"',"+ data.getLat(0) +","+data.getLng(0)+",'"
-		        +data.getAddress(1)+"',"+ data.getLat(1) +","+data.getLng(1)+",'"
-		        +data.getAddress(2)+"',"+ data.getLat(2) +","+data.getLng(2)+",'"
-		        +data.getAddress(3)+"',"+ data.getLat(3) +","+data.getLng(3)+",'"
-		        +data.getAddress(4)+"',"+ data.getLat(4) +","+data.getLng(4)+",'"
-		        +data.getAddress(5)+"',"+ data.getLat(5) +","+data.getLng(5)+",'"
-		        +data.getAddress(6)+"',"+ data.getLat(6) +","+data.getLng(6)+")";
+		        +data.getRid()+"',"+data.getDatasize()+",'"+data.getCid()+"','"+name+"','"
+		        +address[0]+"',"+ data.getLat(0) +","+data.getLng(0)+",'"
+		        +address[1]+"',"+ data.getLat(1) +","+data.getLng(1)+",'"
+		        +address[2]+"',"+ data.getLat(2) +","+data.getLng(2)+",'"
+		        +address[3]+"',"+ data.getLat(3) +","+data.getLng(3)+",'"
+		        +address[4]+"',"+ data.getLat(4) +","+data.getLng(4)+",'"
+		        +address[5]+"',"+ data.getLat(5) +","+data.getLng(5)+",'"
+		        +address[6]+"',"+ data.getLat(6) +","+data.getLng(6)+")";
 		//System.out.println("Route DB에 데이터를 삽입합니다.: " + sqlStr);
 		try {
 			connection = ds.getConnection();
@@ -203,10 +222,14 @@ public class ConnectDB {
 				result += "<rID>" + rs.getString(1) + "</rID>";
 				int size = rs.getInt(2); //사이즈
 				result += "<size>" + Integer.toString(size) + "</size>";
-				result += "<name>" + rs.getString(4) + "</name>";
+				String name = rs.getString(4);
+				name = URLDecoder.decode(name, "utf-8");
+				result += "<name>" + name + "</name>";
 				int addressCnt = 5;
 				for(int i = 0;i<size;i++) {
-					result += "<address"+Integer.toString(i)+">"+ rs.getString(addressCnt) +"</address"+Integer.toString(i)+">";
+					String address = rs.getString(addressCnt);
+					address = URLDecoder.decode(address, "utf-8");
+					result += "<address"+Integer.toString(i)+">"+ address +"</address"+Integer.toString(i)+">";
 					addressCnt += 3;
 				}
 				result += "</Data>";
@@ -219,6 +242,9 @@ public class ConnectDB {
 			//System.out.println("DB 연동 안됨");
 			//System.out.println("SQLException: " + SQLex.getMessage());
 			//System.out.println("SQLState: " + SQLex.getSQLState());
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		////System.out.println("result2 : " + resultStr);
 		return resultStr;
@@ -259,7 +285,9 @@ public class ConnectDB {
 				int addressCnt = 5;
 				int latCnt = 6, lngCnt = 7;
 				for(int i =0;i<size;i++) {
-					tmpIndex.setAddress(i, rs.getString(addressCnt));
+					String address = rs.getString(addressCnt);
+					address = URLDecoder.decode(address, "utf-8");
+					tmpIndex.setAddress(i, address);
 					tmpIndex.setLat(i, Double.parseDouble(rs.getString(latCnt)));
 					tmpIndex.setLng(i, Double.parseDouble(rs.getString(lngCnt)));
 					addressCnt += 3;
@@ -273,6 +301,9 @@ public class ConnectDB {
 		}catch (SQLException SQLex) {
 			//System.out.println("CallDBData_INDEX 오류발생");
 			//System.out.println("SQLException: " + SQLex.getMessage());
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}					
 		return tmpIndex;
 	}

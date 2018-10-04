@@ -31,27 +31,26 @@
       	<div style="display:flex;height:7%;background-color:rgb(255, 153, 000);">
       		<div id="btnSaveList">
       			<a href="#">
-	        		<img style="margin-top:10px;width:60px;" src="img/menu_save.png"/>
+	        		<img style="height:70%;margin-top:10px;" src="img/menu_save.png"/>
 	        	</a>
       		</div>
       		<div id="btnMainList">
       			<a href="#">
-	        		<img  style="width:60px; margin-top:10px;" src="img/menu_select.png"/>
+	        		<img  style="height:70%; margin-top:10px;" src="img/menu_select.png"/>
         		</a>
       		</div>      		
      		 <div id="btnSearch" >
-     		 <form name="form" id="form" method="post">                       
+		 		<a href="#" id="roadAddrPart1" onclick="goPopup();">
+   		 			<img style="height:70%; margin-top:10px;" src="img/menu_search.png"/>
+   		 	   </a>
+     		 </div>
+     		  <form name="form" id="form" method="post">                       
                   <input type="hidden" id="IDNum" name="IDNum" value="0"> 
                   <input type="hidden" id="roadAddrPart1">
                   <input type="hidden" id="jibunAddr" value="" /> 
                   <input type="hidden" id="confmKey" name="confmKey"
                      value="U01TX0FVVEgyMDE4MDcxMTIxMDYwMTEwODAwMzQ="> 
-            	
-    		 	   <a href="#" id="roadAddrPart1" onclick="goPopup();">
-    		 		<img style="width:60px;margin-top:10px;" src="img/menu_search.png"/>
-    		 	   </a>
      		 	</form>
-     		 </div>
       	</div>
          <div id="asideContent" class="left-sidebar">
             <!--  frameLeft -->
