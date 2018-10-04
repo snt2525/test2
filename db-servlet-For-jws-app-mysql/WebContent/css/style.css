@@ -130,7 +130,8 @@ p.lead {
 
 .navImg{
 	margin-top:3%;
-	height:50%;
+	height:40%;
+	margin-right:10px;
 }
 a {
    color: #666;
@@ -169,12 +170,10 @@ blockquote strong {
 
 
 #bar1{
-	flex:1;
 	margin-top:5px;
 	margin-left:20px;
 }
 #bar2{
-	flex:2;
 	text-align:left;
 	margin-top:4%;
 	color:gray;
