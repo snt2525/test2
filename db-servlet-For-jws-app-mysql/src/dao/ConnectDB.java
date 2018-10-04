@@ -154,10 +154,8 @@ public class ConnectDB {
 		
 		try {
 			name = URLEncoder.encode(name, "utf-8");
-			for(int i = 0;i<7;i++) {
-				if(!address[i].equals("")) {
-					address[i] = URLEncoder.encode(address[i], "utf-8");
-				}
+			for(int i = 0;i<data.getDatasize();i++) {
+				address[i] = URLEncoder.encode(address[i], "utf-8");
 			}
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
