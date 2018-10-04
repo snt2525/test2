@@ -1,4 +1,6 @@
 package dao;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -143,9 +145,16 @@ public class ConnectDB {
 		return tmpData;
 	}
 	
-	public void SaveData(DBRouteData data) { //데이터 저장		
+	public void SaveData(DBRouteData data) { //데이터 저장	
+		String text ="";
+		try {
+			text = URLEncoder.encode(data.getName(), "utf-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		String sqlStr = "INSERT INTO route VALUES('"
-		        +data.getRid()+"',"+data.getDatasize()+",'"+data.getCid()+"','"+data.getName()+"','"
+		        +data.getRid()+"',"+data.getDatasize()+",'"+data.getCid()+"','"+text+"','"
 		        +data.getAddress(0)+"',"+ data.getLat(0) +","+data.getLng(0)+",'"
 		        +data.getAddress(1)+"',"+ data.getLat(1) +","+data.getLng(1)+",'"
 		        +data.getAddress(2)+"',"+ data.getLat(2) +","+data.getLng(2)+",'"
