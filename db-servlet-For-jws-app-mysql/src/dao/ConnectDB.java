@@ -25,8 +25,6 @@ public class ConnectDB {
 		try {	
 			InitialContext ct = new InitialContext();
 			ds = (DataSource)ct.lookup("java:comp/env/jdbc/mysqldb");
-			
-
 		} catch (Exception e) {
 			
 		}
@@ -46,9 +44,9 @@ public class ConnectDB {
 			}
 			rs = st.executeQuery("SELECT * FROM customer where id='"+ info.getId()+"'");			
 			if(rs.next()) { //이미 있는 아이디
-				//System.out.println("이미 있는 아이디입니다.");
+				System.out.println("이미 있는 아이디입니다.");
 			}else{
-				//System.out.println("없는 아이디입니다.");
+				System.out.println("없는 아이디입니다.");
 				CreateDB(info); //없는 아이디
 				rs = st.executeQuery("SELECT * FROM customer");
 				while (rs.next()) {
