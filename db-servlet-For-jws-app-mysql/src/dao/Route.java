@@ -54,7 +54,7 @@ public class Route {
 	   return tmp;
    }
    
-/*   public void printAns(int size) {
+   public void printAns(int size) {
 	   System.out.print("dataTotal.carAns: ");
 	   for(int i =0; i<size; i++) {
 		   System.out.print(dataTotal.carAns[i]+", ");
@@ -65,7 +65,7 @@ public class Route {
 		   System.out.print(dataTotal.ptAns[i]+", ");
 	   }
 	   System.out.println();
-   }*/
+   }
    
    //여기서 dataTotal에 데이터도 넣고, recall도 해준다
    public void putDTO_AND_reCall(Route2DataCall tmp, AddressDataManager ad) {
@@ -76,7 +76,7 @@ public class Route {
 	            dataTotal.carAns[i] = tmp.getCar_order(i);
 	            dataTotal.ptAns[i] = tmp.getPt_order(i); 
 	         }
-	    //     printAns(size); //출력
+	         printAns(size); //출력
 	         System.out.println("ssssssssssss"+size);
 	      
 	      //recallApiData();얘를 호출 102번째 줄에 있음.   
@@ -115,19 +115,19 @@ public class Route {
         return true;
 	}	
    
- /*  void print(int size) {
-      System.out.print("자동차 : ");
+   void print(int size) {
+      System.out.print("car : ");
       for(int i=0; i<size; i++) {
          System.out.print(dataTotal.carAns[i]+" ");
       }
       System.out.println();
-      System.out.print("대중교통 : ");
+      System.out.print("pt : ");
       for(int i=0; i<size; i++) {
          System.out.print(dataTotal.ptAns[i]+" ");
       }
       System.out.println();
    }
-*/
+
    public void recallApiData(int how, int start, int end) {
 	   if(how == 0) {
 		   pt.resultOrderCall(dataTotal.ptAns, start, end);			
@@ -246,7 +246,7 @@ public class Route {
 	   return result;
    }   
    
-/*   void print(AddressDataManager ad, SetData sd) {
+   void print(AddressDataManager ad, SetData sd) {
 	   System.out.println("처음, 끝 : " + sd.GetStartData() + " , " + sd.GetLastData());
 	   int listSize = ad.addressData.size();
 	   System.out.print("리스트 보여주기 : ");
@@ -254,7 +254,7 @@ public class Route {
 		   System.out.print(ad.addressData.get(i).getAddress() + " , ");
 	   }
 	   System.out.println();
-   }*/
+   }
    
    public String resultList(int how, AddressDataManager ad, SetData sd) { // 0:pt, 1:car
 	   String result="";

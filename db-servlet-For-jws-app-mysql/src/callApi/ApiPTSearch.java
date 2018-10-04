@@ -41,12 +41,12 @@ public class ApiPTSearch {
 
    // 출력 함수 : 대중교통 거리 출력
    void ptPrint(int size) {
-      //System.out.println("대중교통 거리 출력");
+      System.out.println("pt dist print");
       for(int i=0; i<listSize; i++) {
          for(int j=0; j<listSize; j++) {
-            //System.out.print(dataTotal.ptDist[i][j].getTime() + " "); 
+            System.out.print(dataTotal.ptDist[i][j].getTime() + " "); 
          }
-         //System.out.println();
+         System.out.println();
       }
    }
    
@@ -63,8 +63,8 @@ public class ApiPTSearch {
             }
          }
       }
-     // ptPrint(listSize);
-     // //System.out.println("대중교통끝"+", 리스트 사이즈"+ listSize);
+      ptPrint(listSize);
+      System.out.println("pt end"+", list size: "+ listSize);
    }
  
    // callTransportApi 호출당해, 대중교통 호출
@@ -132,7 +132,7 @@ public class ApiPTSearch {
             array = data.split("\"");
             for (int k = 0; k < array.length; k++) {
                if(array[k].equals("code")) {     //700m 이하로 문제 발생
-            	   //System.out.println("문제있음=============="+ sb); 
+            	   System.out.println("문제있음=============="+ sb); 
                    //에러가 발생하면 걷기로 대체 
                    int tmpTime = 0;
                    if (flag == true) {
