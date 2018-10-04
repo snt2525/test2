@@ -1,5 +1,6 @@
 package dao;
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -212,7 +213,9 @@ public class ConnectDB {
 				result += "<rID>" + rs.getString(1) + "</rID>";
 				int size = rs.getInt(2); //사이즈
 				result += "<size>" + Integer.toString(size) + "</size>";
-				result += "<name>" + rs.getString(4) + "</name>";
+				String name =  rs.getString(4);
+				URLDecoder.decode(name, "utf-8");
+				result += "<name>" + name + "</name>";
 				int addressCnt = 5;
 				for(int i = 0;i<size;i++) {
 					result += "<address"+Integer.toString(i)+">"+ rs.getString(addressCnt) +"</address"+Integer.toString(i)+">";
@@ -228,6 +231,9 @@ public class ConnectDB {
 			//System.out.println("DB 연동 안됨");
 			//System.out.println("SQLException: " + SQLex.getMessage());
 			//System.out.println("SQLState: " + SQLex.getSQLState());
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		////System.out.println("result2 : " + resultStr);
 		return resultStr;
