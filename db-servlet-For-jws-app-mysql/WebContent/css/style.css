@@ -240,7 +240,16 @@ a.delete-factor {
    font-size: 20px;
    font-weight: 700;
    margin-bottom: 5%;
-   width: 85%;
+   width: 100%;
+   float:center;
+   flex:8;
+   word-break: break-all;
+}
+.middle-content2 {
+   font-size: 20px;
+   font-weight: 700;
+   margin-bottom: 5%;
+   width: 100%;
    float:center;
    flex:8;
    word-break: break-all;
