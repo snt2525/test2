@@ -332,6 +332,8 @@ function callPolyLine(title){ // 0:pt, 1:car
 	    		   lineArrayTmp[i] = new Array();
 	    	   polyline.setMap(null);
 	    	   delete polyline;
+	    	   polyline2.setMap(null);
+	    	   delete polyline2;
 	    	   
 	    	   $(data).find("Data").each(function(){	    			   
 	    		   var Point = new naver.maps.Point($(this).find('lat').text(), $(this).find('lng').text());

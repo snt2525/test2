@@ -129,8 +129,8 @@ p.lead {
 }
 
 .navImg{
-	margin-top:5px;
-	width:130px;
+	margin-top:3%;
+	height:50%;
 }
 a {
    color: #666;
@@ -176,7 +176,7 @@ blockquote strong {
 #bar2{
 	flex:2;
 	text-align:left;
-	margin-top:20px;
+	margin-top:4%;
 	color:gray;
 	font-weight:500;
 }
@@ -240,7 +240,16 @@ a.delete-factor {
    font-size: 20px;
    font-weight: 700;
    margin-bottom: 5%;
-   width: 85%;
+   width: 100%;
+   float:center;
+   flex:8;
+   word-break: break-all;
+}
+.middle-content2 {
+   font-size: 20px;
+   font-weight: 700;
+   margin-bottom: 5%;
+   width: 100%;
    float:center;
    flex:8;
    word-break: break-all;
@@ -252,7 +261,7 @@ a.delete-factor {
    flex:1;
 }
 .right-content1 {
-	margin-top:20px;
+   margin-top:20px;
    float: right;
    flex:1;
 }
@@ -278,9 +287,8 @@ a.delete-factor {
    font-size: 10px;
    font-weight: 500;
    margin-bottom: 5%;
-   margin-left:50px;
    display: inline-block;
-   width: 70%;
+   width: 50%;
    word-break: break-all;
 }
 

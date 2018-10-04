@@ -41,7 +41,7 @@ function toggleLayer(layer)
 var rID = "";
 function showList(){ // 저장된 데이터 리스트 보여주는 함수
 	$("#resetBtn").attr("type","hidden");
-	alert("showList");
+	//alert("showList");
 	// addressServlet 6번으로 가기
 	$.ajax({
 		url:"/AddressDataServlet",
