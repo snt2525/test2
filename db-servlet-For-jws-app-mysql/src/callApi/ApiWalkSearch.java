@@ -36,7 +36,7 @@ public class ApiWalkSearch{
               br = new BufferedReader(new InputStreamReader(con.getInputStream()));
           } else {
               br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
-              //System.out.print("실패");
+              System.out.print("walk fail!");
           }
           sb = new StringBuilder();
           String line;
@@ -96,7 +96,7 @@ public class ApiWalkSearch{
 				con.disconnect();
 				String data = sb.toString();
 
-				//System.out.println("d실패" + data);	
+				System.out.println("recall walk fail:" + data);	
 				infopt.setError(true);
 				return infopt;
 			}
@@ -120,7 +120,7 @@ public class ApiWalkSearch{
 			//System.out.println("성공 : " + data);
 			
 			for (int i = 0; i < array.length; i++) {
-				if (array[i].equals("id")){
+				if (array[i].equals("id")){					
 					Thread.sleep(550);
 					return resultWalkPTApi(sx, sy, ex, ey);
 				}

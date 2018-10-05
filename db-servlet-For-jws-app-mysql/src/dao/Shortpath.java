@@ -91,26 +91,26 @@ public class Shortpath {
    void carPrint(int size) {
       for(int i=0; i<size; i++) {
          for(int j=0; j<size; j++) {
-            //System.out.print(dataTotal.carDist[i][j].getTime() + " ");
+            System.out.print(dataTotal.carDist[i][j].getTime() + " ");
          }
-         //System.out.println();
+         System.out.println();
       }
    }
    
    void ptPrint(int size) {
       for(int i=0; i<size; i++) {
          for(int j=0; j<size; j++) {
-            //System.out.print(dataTotal.ptDist[i][j].getTime() + " ");
+            System.out.print(dataTotal.ptDist[i][j].getTime() + " ");
          }
-         //System.out.println();
+         System.out.println();
       }
    }
    
    void callDFS(int start, int end, int how, int equal){ // equal: 시작, 도착 같으면 1  아니면 0
-      //System.out.println("자동차 거리 출력"+start);
+      System.out.println("car dist print: "+start);
       ////System.out.println("listSize 출력 : " + listSize);
       carPrint(listSize);
-      //System.out.println("대중교통 거리 출력");
+      System.out.println("pt dist print");
       ptPrint(listSize);
       min=Integer.MAX_VALUE;
       //System.out.println("start : " + start);
@@ -140,14 +140,14 @@ public class Shortpath {
          visit[start]= 0;
       }
       if(how == 0) {
-	      //System.out.println("대중교통 순서:");
+	      System.out.println("pt order:");
 	      for(int i =0;i<listSize;i++) {
-	         //System.out.print(dataTotal.ptAns[i] +" ");
+	         System.out.print(dataTotal.ptAns[i] +" ");
 	      }
       }else {
-	      //System.out.println("자동차 순서:");
+	      System.out.println("car order:");
 	      for(int i =0;i<listSize;i++) {
-	         //System.out.print(dataTotal.carAns[i] +" ");
+	         System.out.print(dataTotal.carAns[i] +" ");
 	      }
       }
       //System.out.println();

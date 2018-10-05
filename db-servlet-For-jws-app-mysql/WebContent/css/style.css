@@ -128,11 +128,7 @@ p.lead {
    display: inline-block;
 }
 
-.navImg{
-	margin-top:3%;
-	height:40%;
-	margin-right:10px;
-}
+
 a {
    color: #666;
    -webkit-transition: all .2s ease-in-out;
@@ -168,6 +164,18 @@ blockquote strong {
    font-weight: 700;
 }
 
+
+#bar{
+	height:70%;
+	margin-top:5px;
+	margin-left:20px;
+	padding:10px;
+}
+
+.navImg{
+	height:50px;
+	margin-right:20px;
+}
 
 #bar1{
 	margin-top:5px;

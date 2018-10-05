@@ -129,6 +129,7 @@ public class Route {
    }
 
    public void recallApiData(int how, int start, int end) {
+	   System.out.print("recall APi()");
 	   if(how == 0) {
 		   pt.resultOrderCall(dataTotal.ptAns, start, end);			
 	   }
