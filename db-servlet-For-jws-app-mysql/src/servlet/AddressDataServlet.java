@@ -131,6 +131,7 @@ public class AddressDataServlet extends HttpServlet {
             
          case 8: //목적지가 몇 개인지
             int result7 = ad[ID].listSize();
+            System.out.print(result7);
             out.print(result7);
             break;   
             
@@ -171,35 +172,35 @@ public class AddressDataServlet extends HttpServlet {
         	 //System.out.println("13," +what +":"+ r[ID].ptFlag);
         	 int result13 = 0; 
         	 if(what == 0) { //대중교통
-	        		 try {
-	        			 while(true) {
-	        				 Thread.sleep(500);
-	        				 System.out.println("pt:"+r[ID].ptFlag+", "+sd[ID].GetStartData() +", "+sd[ID].GetLastData());
-	        				 if(r[ID].ptFlag == 1 && sd[ID].GetStartData() != -1 && sd[ID].GetLastData() != -1) {
-	    	        			 System.out.println("pt:"+r[ID].ptFlag);
-	    	        			 result13 = 1;
-	    	        			 break;
-	    	        		 }
-	        			 }
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-	        	 }else if(what == 1){ //자동차        		  			 
-        			try {
-        				while(true) {         
-						Thread.sleep(500);
-						System.out.println("car While:"+r[ID].carFlag);
-						if(r[ID].carFlag == 1 && sd[ID].GetStartData() != -1 && sd[ID].GetLastData() != -1) {
-	        				System.out.println("car While:"+r[ID].carFlag);
-		        			 result13 = 1;
-		        			 break;
-		        		 }
-        				}
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();    			 
-					}
+        		 try {
+        			 while(true) {
+        				 Thread.sleep(500);
+        				 System.out.println("pt:"+r[ID].ptFlag+", "+sd[ID].GetStartData() +", "+sd[ID].GetLastData());
+        				 if(r[ID].ptFlag == 1 && sd[ID].GetStartData() != -1 && sd[ID].GetLastData() != -1) {
+    	        			 System.out.println("pt:"+r[ID].ptFlag);
+    	        			 result13 = 1;
+    	        			 break;
+    	        		 }
+        			 }
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+        	 }else if(what == 1){ //자동차        		  			 
+    			try {
+    				while(true) {         
+					Thread.sleep(500);
+					System.out.println("car While:"+r[ID].carFlag);
+					if(r[ID].carFlag == 1 && sd[ID].GetStartData() != -1 && sd[ID].GetLastData() != -1) {
+        				System.out.println("car While:"+r[ID].carFlag);
+	        			 result13 = 1;
+	        			 break;
+	        		 }
+    				}
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();    			 
+				}
         	 }
         	 //System.out.println(result13);
         	 out.print(result13);

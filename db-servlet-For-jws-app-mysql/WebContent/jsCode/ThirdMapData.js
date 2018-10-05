@@ -68,6 +68,7 @@ function possibleNext(){
 		$('#nextBtn').attr({'href':'#'});
 		alert("시작 위치를 선정해주세요")
 	}else{
+		console.log("안오니?");
 		$.ajax({
 			contentType:'application/x-www-form-urlencoded;charset=UTF-8', 
 			url:"/AddressDataServlet",
@@ -99,13 +100,13 @@ function possibleNext(){
 						url:"/AddressDataServlet",
 						data: $("#apiAB").serialize()+"&customerID="+customerID
 					});
-				}	
+				}
+				$('#nextBtn').attr({'href':'Fourth.html'});
 			},
 			error: function(data){
 				console.log(data);
 			}			
-		});	
-		$('#nextBtn').attr({'href':'Fourth.html'});
+		});
 	}
 }
 
