@@ -209,8 +209,9 @@ public class AddressDataServlet extends HttpServlet {
             out.print(result10);
             break;
             
-         case 15:             
+         case 15:          	 
            if(apiFlag[ID]) {
+        	  System.out.print("start call api data: 15");
               int a = Integer.parseInt(request.getParameter("a"));
               int b = Integer.parseInt(request.getParameter("b"));
               String car = request.getParameter("carBlock");

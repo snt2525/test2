@@ -14,7 +14,9 @@ function print(){
    console.log("age : " + sessionStorage.getItem("age"));
 }
 
-$("#bar2").html(sessionStorage.getItem("email")+" 님 환영합니다.");
+var naviHtml = "<a href='Second.html'><img class='navImg' src='img/logo_color.png'/></a>"
+	+sessionStorage.getItem("email")+" 님 환영합니다.";
+$("#bar").html(naviHtml);
 function sessionCheck(i){
    // 만약 로그인 안되어있으면 로그인 페이지로 무조건 가기
    if(sessionStorage.getItem('id')==null){

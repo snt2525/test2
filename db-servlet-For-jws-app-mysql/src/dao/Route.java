@@ -98,14 +98,14 @@ public class Route {
        pt = new ApiPTSearch(ad.getList(), dataTotal, listSize);
 	   size = ad.addressData.size();
       //대중교통  API 호출 & 동시에 걷기도 호출해서 이차원배열 채우기
-        System.out.println("대중교통 호출");
+        System.out.println("start call pt");
         pt.callTransportApi(a, b);    
         //System.out.println("car : " + car);
         if(car.equals("0")) {      
            sp.init(ad.addressData.size(),dataTotal);
         	//sp = new Shortpath(ad.addressData.size(),dataTotal);
            //자동차 api호출
-            System.out.println("자동차호출");           
+            System.out.println("start call car");           
             ptFlag = 1; //대중됴통 호출 끌
             cs = new ApiCarSearch(ad.getList(), dataTotal, listSize);
             cs.carApi(); //자동차 API call 
