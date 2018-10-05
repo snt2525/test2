@@ -69,44 +69,7 @@ function possibleNext(){
 		alert("시작 위치를 선정해주세요")
 	}else{
 		console.log("안오니?");
-		$.ajax({
-			contentType:'application/x-www-form-urlencoded;charset=UTF-8', 
-			url:"/AddressDataServlet",
-			dataType: "text",
-			data:  $("#possible").serialize()+"&customerID="+customerID,
-			success:function(data){	
-				console.log(data);
-				var size = data;
-				if(size>4){ // 대중교통 반으로 나눠서 돌리기
-					document.apiAB.a.value = "0";
-					document.apiAB.b.value = "4";
-					document.apiAB.carBlock.value = "0";
-					$.ajax({
-						url:"/AddressDataServlet",
-						data: $("#apiAB").serialize()+"&customerID="+customerID
-					});	
-					document.apiAB.a.value = "4";
-					document.apiAB.b.value = String(size);
-					document.apiAB.carBlock.value = "1";
-					$.ajax({
-						url:"/AddressDataServlet",
-						data: $("#apiAB").serialize()+"&customerID="+customerID
-					});	
-				}else{ // 자동차 
-					document.apiAB.a.value = "0";
-					document.apiAB.b.value = String(size);
-					document.apiAB.carBlock.value = "0";
-					$.ajax({
-						url:"/AddressDataServlet",
-						data: $("#apiAB").serialize()+"&customerID="+customerID
-					});
-				}
-				$('#nextBtn').attr({'href':'Fourth.html'});
-			},
-			error: function(data){
-				console.log(data);
-			}			
-		});
+		$('#nextBtn').attr({'href':'Fourth.html'});
 	}
 }
 

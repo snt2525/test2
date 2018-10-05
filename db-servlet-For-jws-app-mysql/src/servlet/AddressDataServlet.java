@@ -173,7 +173,7 @@ public class AddressDataServlet extends HttpServlet {
         	 int result13 = 0; 
         	 if(what == 0) { //대중교통
         		 try {
-        			 while(true) {
+        			 for(int i=0;i<50;i++) {
         				 Thread.sleep(500);
         				 System.out.println("pt:"+r[ID].ptFlag+", "+sd[ID].GetStartData() +", "+sd[ID].GetLastData());
         				 if(r[ID].ptFlag == 1 && sd[ID].GetStartData() != -1 && sd[ID].GetLastData() != -1) {
@@ -188,7 +188,7 @@ public class AddressDataServlet extends HttpServlet {
 				}
         	 }else if(what == 1){ //자동차        		  			 
     			try {
-    				while(true) {         
+    				for(int i =0;i<50;i++) {         
 					Thread.sleep(500);
 					System.out.println("car While:"+r[ID].carFlag);
 					if(r[ID].carFlag == 1 && sd[ID].GetStartData() != -1 && sd[ID].GetLastData() != -1) {

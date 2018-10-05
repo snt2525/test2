@@ -74,6 +74,17 @@
 						value="U01TX0FVVEgyMDE4MDcxMTIxMDYwMTEwODAwMzQ=">
 				</div>
 			</form>
+			<form name="possible" id="possible" method="post">
+				<input type="hidden" id="menuIndex" name="menuIndex" value="8" /> 
+				<input type="hidden" id="IDNum" name="IDNum" value="0"> 
+			</form>
+				<form name="apiAB" id="apiAB" method="post">
+				<input type="hidden" id="menuIndex" name="menuIndex" value="15"/> 
+				<input type="hidden" id="a" name="a" value="" /> 
+				<input type="hidden" id="b" name="b" value="" /> 
+				<input type="hidden" id="carBlock" name="carBlock" value="0" />
+				<input type="hidden" id="IDNum" name="IDNum" value="0"> 
+			</form>
 
 			<div id="wrap" class="section">
 				<div id="map2" style="width: 100%; height: 100%;"></div>
@@ -87,6 +98,43 @@
 	<script>
 		if(sessionCheck()==1){
 			getDataFourth(); //초기화
+			$.ajax({
+				contentType:'application/x-www-form-urlencoded;charset=UTF-8', 
+				url:"/AddressDataServlet",
+				dataType: "text",
+				data:  $("#possible").serialize()+"&customerID="+customerID,
+				success:function(data){	
+					console.log(data);
+					var size = data;
+					if(size>4){ // 대중교통 반으로 나눠서 돌리기
+						document.apiAB.a.value = "0";
+						document.apiAB.b.value = "4";
+						document.apiAB.carBlock.value = "0";
+						$.ajax({
+							url:"/AddressDataServlet",
+							data: $("#apiAB").serialize()+"&customerID="+customerID
+						});	
+						document.apiAB.a.value = "4";
+						document.apiAB.b.value = String(size);
+						document.apiAB.carBlock.value = "1";
+						$.ajax({
+							url:"/AddressDataServlet",
+							data: $("#apiAB").serialize()+"&customerID="+customerID
+						});	
+					}else{ // 자동차 
+						document.apiAB.a.value = "0";
+						document.apiAB.b.value = String(size);
+						document.apiAB.carBlock.value = "0";
+						$.ajax({
+							url:"/AddressDataServlet",
+							data: $("#apiAB").serialize()+"&customerID="+customerID
+						});
+					}
+				},
+				error: function(data){
+					console.log(data);
+				}			
+			});			
 		}
 	</script>
 </body>

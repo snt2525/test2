@@ -14,7 +14,7 @@ html, body {
 
 #aside {
 	position: absolute; /* relative로 하는 것도 이쁘다 */
-	top: 0;
+	top: -6px;
 	bottom: 0;
 	left: 0;
 	z-index: 3;
