@@ -174,8 +174,9 @@ public class AddressDataServlet extends HttpServlet {
 	        		 try {
 	        			 while(true) {
 	        				 Thread.sleep(500);
+	        				 System.out.println("pt:"+r[ID].ptFlag+", "+sd[ID].GetStartData() +", "+sd[ID].GetLastData());
 	        				 if(r[ID].ptFlag == 1 && sd[ID].GetStartData() != -1 && sd[ID].GetLastData() != -1) {
-	    	        			 System.out.println("pt:"+r[ID].ptFlag+", "+sd[ID].GetStartData() +", "+sd[ID].GetLastData());
+	    	        			 System.out.println("pt:"+r[ID].ptFlag);
 	    	        			 result13 = 1;
 	    	        			 break;
 	    	        		 }
@@ -188,6 +189,7 @@ public class AddressDataServlet extends HttpServlet {
         			try {
         				while(true) {         
 						Thread.sleep(500);
+						System.out.println("car While:"+r[ID].carFlag);
 						if(r[ID].carFlag == 1 && sd[ID].GetStartData() != -1 && sd[ID].GetLastData() != -1) {
 	        				System.out.println("car While:"+r[ID].carFlag);
 		        			 result13 = 1;

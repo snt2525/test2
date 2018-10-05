@@ -74,6 +74,7 @@ function possibleNext(){
 			dataType: "text",
 			data:  $("#possible").serialize()+"&customerID="+customerID,
 			success:function(data){	
+				console.log(data);
 				var size = data;
 				if(size>4){ // 대중교통 반으로 나눠서 돌리기
 					document.apiAB.a.value = "0";
