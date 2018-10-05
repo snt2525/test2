@@ -95,7 +95,7 @@ hr.style-two {
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 p {
-   font-size: 13px;
+   font-size: 18px;
 }
 
 p.lead {
@@ -164,9 +164,8 @@ blockquote strong {
    font-weight: 700;
 }
 
-
 #bar{
-	height:70%;
+	height:60px;
 	margin-top:5px;
 	margin-left:20px;
 	padding:10px;
@@ -178,23 +177,22 @@ blockquote strong {
 }
 
 #bar1{
+	/* flex:1; */
 	margin-top:5px;
 	margin-left:20px;
+	margin-right:20px;
 }
 #bar2{
+	/* flex:2; */
 	text-align:left;
 	margin-top:4%;
 	color:gray;
 	font-weight:500;
 }
-#bar3{
-	flex:2;
-	text-align:right;
-}
 
 .naviBar{
 	width:100%;
-	height:70px;
+	height:75px;
 	background-color: white;
 	box-shadow: 0px -2px 5px gray inset;
 }
