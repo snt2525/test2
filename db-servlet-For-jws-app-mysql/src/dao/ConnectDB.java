@@ -107,6 +107,7 @@ public class ConnectDB {
 				//System.out.println("이미 있는 경로");
 				rs.close();
 				st.close();
+				connection.close();
 				return "0";
 			}else {
 				//System.out.println("없는 저장 정보 입니다."); 
