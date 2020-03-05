@@ -1,0 +1,252 @@
+@charset "utf-8";
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+#container {
+	height: 100%;
+	width: 100%;
+}
+
+#aside {
+	position: absolute; /* relative로 하는 것도 이쁘다 */
+	top: -6px;
+	bottom: 0;
+	left: 0;
+	z-index: 3;
+	width: 25%;
+	border-right: 1px solid #a7a7a7;
+	background-color: #fff;
+	box-shadow: 0px 0px 3px gray;
+}
+
+#asideContent {
+	height: 100%;
+	position: relative;
+}
+
+#asideTop {
+	position: relative;
+	overflow: auto;
+	height: 58%;
+}
+
+
+#aisdeKeyword{
+	position:relative;
+	overflow:auto; 
+	height:15%;
+}
+
+
+#asideBottom {
+	position: relative;
+	height: 5%;
+}
+
+#content {
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+#top {
+	position: relative;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 25%;
+	overflow: hidden;
+}
+
+#bottom {
+	position: relative;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 25%;
+	height: 330px;
+	overflow: auto;
+	box-shadow: 0px 0px 5px gray;
+}
+
+div {
+	display: block;
+}
+
+#resetBtn {
+	float: right;
+	margin: 5px;
+	padding: 5px;
+}
+
+#nextBtn1 {
+	float: right;
+	margin: 5px;
+	padding: 5px;
+}
+
+#list {
+	margin: 5px;
+	padding: 5px;
+}
+
+.search {
+	position: absolute;
+	float:right;
+	z-index: 1000;
+	top: 12px;
+	left: 69%;
+}
+
+.search #address {
+	width: 350px;
+	height: 20px;
+	line-height: 20px;
+	border: solid 1px #555;
+	padding: 5px;
+	font-size: 12px;
+	box-sizing: content-box;
+}
+
+.search #submit {
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	font-size: 12px;
+	border: solid 1px #555;
+	border-radius: 3px;
+	cursor: pointer;
+	box-sizing: content-box;
+}
+.latest_title{
+	font-weight:800;
+	font-size:20px;
+}
+.save_subtitle{
+	font-weight:600;
+	font-size:18px;
+}
+
+.margin1{
+	margin-top:10px;
+	margin-bottom:10px;
+	margin: 20px;
+}
+
+a.no-uline { 
+	text-decoration:none;	
+}
+a.noul:hover { 
+	color:rgb(255, 153, 000);
+ }
+
+hr.one{
+	border: 1px double rgb(102,  102, 102);
+}
+hr.two{
+	border: 1px solid rgb(153, 153, 153);
+}
+hr.three{
+	border: 1px dashed rgb(197, 197, 197);
+}
+hr.lastHr{
+	border:  3px double gray;
+}
+
+#btnSaveList{
+	flex:1; 
+	text-align:center;
+}
+
+#btnMainList{
+	flex:1;  
+	text-align:center;
+	background-color: #FC7A00;
+}
+#btnSearch{
+	flex:1; 
+	text-align:center;
+}
+
+<!-- image info 창 css -->
+.info-first{
+	position:relative;
+	padding:100px;
+	width:1000px;
+	height:300px;
+}
+.info-second{
+	float:left;
+	position:relative;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:10px;
+	width:350px;
+	height:210px;
+	font-color:black;
+	overflow: auto;
+}
+.info-first-a{
+	color:blue;
+	font-size:14px;
+	text-decoration:none;
+}
+.info-image1{
+	position:relative;
+	width:350px;
+	height:200px;
+	float:right;
+	padding-top:10px;
+	padding-left:10px;
+	padding-bottom:10px;
+}
+.info-left-button{
+	float:left;
+}
+.info-main-image{
+	float:left;
+	width:230px;
+	height:180px;
+}
+.info-right-button{
+	float:left;
+}
+.info-p{
+	color:black;
+	font-size: 15px;
+}
+.info-second-p{
+	color:gray;
+	font-size: 14px;
+}
+.info-add-button{
+	width:40px;
+	height:40px;
+	float:right;
+}
+.info-h6{
+	font-weight:bold; 
+	color:black; 
+	float:left;
+}
+
+<!-- 그냥 info 창 css -->
+.info1-first{
+	position:relative;
+	padding:20px;
+	width:300px;
+	height:50px;
+	font-color:black;
+}
+
+.detail-save{
+	font-weight:600;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+

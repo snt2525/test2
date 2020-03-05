@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<script type="text/javascript"
+	src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=gTUR4iAk1YVJAPF0hdQ9&submodules=geocoder"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<link rel="stylesheet" href="./css/ThirdCSS.css">
+<link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<div id="container">
+		<div id="asideLast">
+			<div class="naviBar">
+      		<div >
+	      		<div>
+	      			<div id="bar"></div> <!-- **님 환영합니다. -->
+        		</div> 
+        	</div> 
+      	</div>
+			<div id="asideContent2">
+				<!--  frameLeft -->
+				<div id="asideTop" class="text-center">
+					<div class="title middle-content1">
+						<!-- <h3 style="margin-top: 20px; font-weight: 600;">최적 경로</h3> -->
+						<h5 class='headline1'>최적 경로</h5>
+					</div>
+					<div class="right-content1">
+						<a href="#" title="저장버튼" onmouseover="ChangeImage(0)"
+							onmouseout="ChangeImage(1)" onclick="ChangeImage(2)"> <img
+							style="padding: 20px;" id="saveBtn" name="saveBtn"
+							src="img/star_gray.png" />
+						</a>
+					</div>
+
+					<!-- tab으로 구성 -->
+					<div style="height: 7%; background-color: rgb(255, 153, 000);">
+						<div id="tabCar">
+							<a href="#"> <img style="margin-top: 15px;"
+								src="img/tab_car.png" />
+							</a>
+						</div>
+						<div id="tabPT">
+							<a href="#"> <img style="margin-top: 15px;"
+								src="img/tab_pt.png" />
+							</a>
+						</div>
+					</div>
+
+					<div style="padding: 20px;">
+					<form id="showCar" name="showCar" method="post">
+							<input type="hidden" id="menuIndex" name="menuIndex" value="20">
+							<input type="hidden" id="how" name="how" value="1">
+							<div id="resultCarList" name="resultCarList">
+								<div><img style="margin-top:10%; margin-bottom:5%; width:90%;"src="img/lastImg.png" /></div>
+								<div>
+									<h5 style='font-size:13px;'>[원하시는 교통을 선택해주세요.]</h5>
+									<p>자동차 탭 : 자동차, 택시</p>
+									<p>대중교통 탭 : 버스, 지하철<br><br></p>
+									
+									<img src='img/way1.png'/> <p>위와같은 버튼을 누르시면 각 경로를 지도상에서 보실 수 있습니다.</p>
+									<p>※ 데이터가 다 도달하지 않았을 경우 탭을 다시 눌러주세요. </p>
+								</div>
+							</div>
+							<!-- 자동차 정보 뿌려주기 -->
+						</form>
+						
+						<form id="showPT" name="showPT" method="post">
+							<input type="hidden" id="menuIndex" name="menuIndex" value="20">
+							<input type="hidden" id="how" name="how" value="0">
+							<div id="resultPTList" name="resultPTList"></div>
+							<!-- 대중교통 정보 뿌려주기 -->
+						</form>
+
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="content">
+
+			<form name="Init" id="Init" method="post">
+				<input type="hidden" id="menuIndex" name="menuIndex" value="12">
+				<input type="hidden" id="IDNum" name="IDNum" value="0">
+			</form>
+
+			<form name="resultLatLng" id="resultLatLng" method="post">
+				<input type="hidden" id="menuIndex" name="menuIndex" value="17" />
+				<input type="hidden" id="how" name="how" value="0" />
+			</form>
+
+			<form name="resultPoly" id="resultPoly" method="post">
+				<input type="hidden" id="menuIndex" name="menuIndex" value="18" />
+				<input type="hidden" id="how" name="how" value="0" />
+			</form>
+
+
+			<div id="wrap" class="section">
+				<div id="map2" style="width: 100%; height: 100%;"></div>
+				<code id="snippet" class="snippet"></code>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="jsCode/Login.js?ver=1"></script>
+	<script type="text/javascript" src="jsCode/Init.js?ver=1"></script>
+	<script type="text/javascript" src="jsCode/Result.js?ver=1"></script>
+	<script>
+		sessionCheck(1);		
+		checkSave();	
+		callResult(); // 마커 그리기;
+		
+		/*sleep();
+	  	void sleep(){
+			var start = new Date().getTime();
+			while(new Date().getTime() < start + 2000);
+	  		callPolyLine(1); // 대중교통 폴리라인 그리기 
+			showResultCar(); // 왼쪽 자동차 뿌리기	  	
+	  	}*/
+	
+		
+		function toggleLayer(layer)
+		{
+		    var l = document.getElementById(layer);
+		    var tmp = layer+"img";
+		    var l_img = document.getElementById(tmp);
+		    if(l.style.display == ""){
+		        l.style.display = "none";
+		        l_img.src="img/arrow_down.png";
+		    }
+		    else if(l.style.display == "none"){
+		        l.style.display = "";
+		        l_img.src="img/arrow_up.png";
+		    }
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<script type="text/javascript"
+   src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=gTUR4iAk1YVJAPF0hdQ9&submodules=geocoder"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<link rel="stylesheet" href="./css/NewFileCSS.css">
+<link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+   <div id="container">
+      <div id="aside">
+      	<!-- 네비게이션 바 같은 것  -->
+      	<div class="naviBar">
+      		<div >
+	      		<div>
+	      			<div id="bar"></div> <!-- **님 환영합니다. -->
+        		</div> 
+        	</div> 
+      	</div>
+      	<div style="display:flex;height:7%;background-color:rgb(255, 153, 000);">
+      		<div id="btnSaveList">
+      			<a href="#">
+	        		<img style="margin-top:10px;width:60px;" src="img/menu_save.png"/>
+	        	</a>
+      		</div>
+      		<div id="btnMainList">
+      			<a href="#">
+	        		<img  style="width:60px; margin-top:10px;" src="img/menu_select.png"/>
+        		</a>
+      		</div>      		
+     		  <div id="btnSearch" >
+		 		<a href="#" id="roadAddrPart1" onclick="goPopup();">
+   		 			<img style="height:70%; margin-top:10px;" src="img/menu_search.png"/>
+   		 	   </a>
+     		 </div>
+     		 <div>
+     		  <form name="form" id="form" method="post">                       
+                  <input type="hidden" id="IDNum" name="IDNum" value="0"> 
+                  <input type="hidden" id="roadAddrPart1">
+                  <input type="hidden" id="jibunAddr" value="" /> 
+                  <input type="hidden" id="confmKey" name="confmKey"
+                     value="U01TX0FVVEgyMDE4MDcxMTIxMDYwMTEwODAwMzQ="> 
+     		 	</form>
+      		</div>
+      	</div>
+         <div id="asideContent" class="left-sidebar">
+            <!--  frameLeft -->
+            <div id="asideTop">
+               <form name="addressBasket" id="addressBasket" method="post">                  	                        	
+		        	<div class="right-content-second"> 
+		        	<a href="#" id="resetBtn" name="resetBtn" title="여행지 초기화">
+		        	<img style="width:40px;" src="img/reset_gray.png" onmouseover="this.src='img/reset_orange.png';" onmouseout="this.src='img/reset_gray.png';"/></a></div>
+		        	
+               	  <input type="hidden" id="IDNum" name="IDNum" value="0"> 
+                  <div id="list" name="list"></div>   <!-- 검색 결과 리스트 출력 -->
+               </form>
+            </div>
+     
+            
+            <div id="aisdeKeyword" >
+            	<hr class="style-two">
+            	<div id="message" name="message" style="font-weight:500;">가이드 키워드입니다. 클릭한 지역의 키워드로 오른쪽에 결과를 볼 수 있습니다.</div>
+            	<div style="margin-top:10px;"> <!-- 여기에 다양한 키워드 넣기 -->
+            		<form name="keyword" id="keyword" method="post">
+            			<input type="hidden" id="menuIndex" name="menuIndex" value="3"/>
+            			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="거리">
+            			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="여행지">
+            			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="유적지">
+            			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="자연">
+            			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="박물관">
+            			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="행사">
+            			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="전시회">
+            			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="명소">
+            			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="호텔">
+            			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="쇼핑">
+            			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="터미널">
+            			<input type="button" class="btnKeyword btn-skin1" onclick="button_click(this.value);" value="테마파크">
+            		</form>
+            	</div>
+            	
+            </div>
+            <div id="asideBottom" >
+               <a href="Third.html" data-role="button" id="nextBtn1" onClick="getDataSize(0);"> 
+               <img src="img/click_right.png" alt="NEXT >" />
+               </a>
+            </div>
+         </div>
+      </div>
+      <div id="content">
+         <div id="top">
+            <!-- x,y좌표를 찾기 위한 form -->
+            <form name="form2" id="form2" method="post">
+               <input type="hidden" id="confmKey" name="confmKey"
+                  value="U01TX0FVVEgyMDE4MDcxMjAzNDUwNTEwODAwMzU=" />
+               <!-- 요청 변수 설정 (승인키) -->
+               <input type="hidden" id="admCd" name="admCd" value="" /> 
+               <input type="hidden" id="rnMgtSn" name="rnMgtSn" value="" /> 
+               <input type="hidden" id="udrtYn" name="udrtYn" value="" /> 
+               <input type="hidden" id="buldMnnm" name="buldMnnm" value="" /> 
+               <input type="hidden" id="buldSlno" name="buldSlno" value="" />
+               <input type="hidden" id="IDNum" name="IDNum" value="0"> 
+            </form>
+
+            <!--주소 데이터 저장 -->
+            <form name="saveAddress" id="saveAddress" method="post">
+               <input type="hidden" id="menuIndex" name="menuIndex" value="1" /> 
+               <input type="hidden" id="lat" name="lat" value="" /> 
+               <input type="hidden" id="lng" name="lng" value="" /> 
+               <input type="hidden" id="si" name="si" value="" /> 
+               <input type="hidden" id="address" name="address" value="" />
+               <input type="hidden" id="IDNum" name="IDNum" value="0"> 
+            </form>
+
+            <!--주소 데이터 삭제-->
+            <form name="deleteAddress" id="deleteAddress" method="post">
+               <input type="hidden" id="menuIndex" name="menuIndex" value="2" /> 
+               <input type="hidden" id="IDNum" name="IDNum" value="0"> 
+               <input type="hidden" id="deleteIndex" name="deleteIndex" value="" />
+            </form>
+
+            <!--주소 데이터 호출-->
+            <form name="getAddress" id="getAddress" method="post">
+               <input type="hidden" id="menuIndex" name="menuIndex" value="3" /> 
+               <input type="hidden" id="addressIndex" name="addressIndex" value="" /> 
+               <input type="hidden" id="getAddress" name="getAddress" value="" />
+               <input type="hidden" id="IDNum" name="IDNum" value="0"> 
+            </form>
+
+            <form name="getLatLng" id="getLatLng" method="post">
+               <input type="hidden" id="menuIndex" name="menuIndex" value="4" /> 
+               <input type="hidden" id="latLngindex" name="latLngindex" value="" />
+            </form> 
+            
+            <!-- img url을 호출 -->
+            <form name="getImgURL" id="getImgURL" method="post">
+               <input type="hidden" id="menuIndex" name="menuIndex" value="3" /> 
+               <input type="hidden" id="localName" name="localName" value="" />
+               <input type="hidden" id="IDNum" name="IDNum" value="0"> 
+            </form>
+            
+            <!--  전체 주소 데이터 받기  -->
+            <form name="getAddressData" id="getAddressData" method="post">
+               <input type="hidden" id="menuIndex" name="menuIndex" value="5">
+               <input type="hidden" id="num" name="num" value="1"> 
+               <input type="hidden" id="IDNum" name="IDNum" value="0"> 
+            </form>
+
+            <!-- 검색 api호출 -->
+            <form name="searchApi" id="searchApi" method="post">
+               <input type="hidden" id="menuIndex" name="menuIndex" value="1">
+               <input type="hidden" id="findLocation" name="findLocation" value="">
+               <input type="hidden" id="address" name="address" value=""> 
+               <input type="hidden" id="num" name="num" value=""> 
+               <input type="hidden" id="IDNum" name="IDNum" value="0"> 
+            </form>
+
+  			<form name="initData" id="initData" method="post">
+               <input type="hidden" id="menuIndex" name="menuIndex" value="7">
+               <input type="hidden" id="IDNum" name="IDNum" value="0"> 
+            </form>
+            
+            <form name="getSize" id="getSize" method="post">
+               <input type="hidden" id="menuIndex" name="menuIndex" value="8">
+               <input type="hidden" id="IDNum" name="IDNum" value="0"> 
+            </form>
+
+            <div id="wrap" class="section">
+               <div id="map" style="width: 100%; height: 600px;"></div>
+               <code id="snippet" class="snippet"></code>
+            </div>
+         </div>
+         <div id="bottom">
+            <form name="SiData" id="SiData" method="post">
+               <input type="hidden" id="menuIndex" name="menuIndex" value="2" /> 
+               <input type="hidden" id="keywordVal" name="keywordVal" value="여행지" />
+               <input type="hidden" id="Si" name="Si" value="첫번째" /> 
+               <input type="hidden" id="clickSi" name="clickSi" value="한국" />
+               <input type="hidden" id="IDNum" name="IDNum" value="0"> 
+               <div id='crawlingData' name="crawlingData">
+               		<div><img style='margin-left: 30%; margin-right: auto;display: block;' src='img/searchLoading.gif'/></div>              
+               </div>
+               <!-- 검색 결과 리스트 출력 -->
+               <input type="hidden" id="addSi" name="addSi" value="미국" />
+            </form>
+         </div>
+      </div>
+   </div>
+   <script type="text/javascript" src="jsCode/Login.js?ver=1"></script>
+   <script type="text/javascript" src="jsCode/AddressInfo.js?ver=1"></script>
+   <script id="code" type="text/javascript" src="jsCode/MapApi.js?ver=1"></script>
+   <script type="text/javascript" src="jsCode/SearchApi.js?ver=1"></script>
+   <script type="text/javascript" src="jsCode/ShowSavedList.js?ver=1"></script>
+   <script>	
+   		//test();
+   		jQuery('#resetBtn').hide(); 
+	 	if(sessionCheck(1) == 1){
+  			getData(); //초기화init()
+    	 	getLocalSearchData();
+		}
+    </script>
+</body>
+</html>

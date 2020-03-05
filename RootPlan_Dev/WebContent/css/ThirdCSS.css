@@ -1,0 +1,233 @@
+@charset "utf-8";
+
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#container {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+#aside {
+	position: absolute; /* relative로 하는 것도 이쁘다 */
+	top: -6px;
+	bottom: 0;
+	left: 0;
+	width: 25%;
+	border-right: 1px solid #a7a7a7;
+	background-color: #fff;
+	box-shadow: 0px 0px 3px gray;
+}
+
+#asideLast {
+	position: absolute; /* relative로 하는 것도 이쁘다 */
+	top: -6px;
+	bottom: 0;
+	left: 0;
+	width: 25%;
+	border-right: 1px solid #a7a7a7;
+	background-color: #fff;
+	overflow: auto;
+	box-shadow: 0px 0px 3px gray;
+}
+
+#asideContent {
+	height: 100%;
+	position: relative;
+	z-index: 3;
+}
+
+#asideTop {
+	position: relative;
+	overflow: auto;
+	height: 80%;
+}
+
+#asideBottom {
+	position: relative;
+	height: 10%;
+}
+
+#content {
+	height: 100%;
+	position: relative;
+	left: 25%;
+	overflow: hidden;
+}
+
+#tabCar{
+	background-color: #FC7A00;
+	float:left;
+	width:50%;
+	padding-bottom:6px;
+}
+
+#tabPT{
+	float:right;
+	width:50%;
+	display:inline-block;
+	background-color:rgb(255, 153, 000);
+}
+
+div {
+	display: block;
+}
+
+tr {
+	padding: 30px;
+}
+
+#resetBtn {
+	float: right;
+	margin: 5px;
+	padding: 5px;
+}
+
+#nextBtn {
+	float: right;
+	margin: 5px;
+	padding: 5px;
+}
+
+#preBtn {
+	float: left;
+	margin: 5px;
+	padding: 5px;
+}
+
+#list {
+	margin: 5px;
+	padding: 5px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.loadingImg {
+	margin-top: 40%;
+}
+
+.wrap {
+	position: relative;
+	/*감싸는 레이어에 포지션 속성을 잡아주는 게 필수!(relative, absolute, fixed 중 택1*/
+	text-align: center;
+}
+
+.wrapIndex{
+	/* weight:90%; */
+	height:100%; 
+}
+.over {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	/*위에 올라가는 레이어의 포지션은 top, bottom 둘 중 하나, left, right 둘 중 하나의 속성을 선택하여 잡아준다.*/
+	background: rgba(0, 0, 0, 0.7);
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+.overTitle{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background: rgba(255, 153, 0, 0.2);
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+.over_loading {
+	max-width: 15%;
+	max-height: 8%;
+	margin-top: 15%;
+	margin-bottom: 40px;
+}
+
+.over_message {
+	width: 23%;
+}
+
+.title_message{
+	font-size:17px;
+	font-weight: 700;
+	color:white;
+}
+
+<!--Last.html 왼쪽 tab -->
+#container {
+	max-width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.tab {
+	list-style: none;
+	margin-left: 20px;
+	margin-right:0px;
+	padding: 0;
+	width:95%;
+	overflow: hidden;
+	font-weight: 700;
+	font-family: sans-serif;
+}
+/* Float the list items side by side */
+.tab li {
+	float: left;
+}
+/* Style the links inside the list items */
+.tab li a {
+	display: inline-block;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	font-size: 17px;
+	transition: 0.3s;
+}
+/* Style the tab content */
+.tabcontent {
+	display: none;
+	background-color:white; 
+	color: black; 
+}
+
+ul.tab li.current { 
+  	background-color: rgb(255, 229, 204); 
+	border-bottom:3px solid rgb(255, 153, 051);
+	color: #222; 
+}
+
+.tabcontent.current {
+	display: block;
+}
+
+.title{
+	margin:5%;
+}
+
+.iconImg{
+	margin-left:10px;
+	margin-right:10px;
+	vertical-align:middle;
+}
+hr.one{
+	border: 1px double rgb(64, 64, 64);
+}
+hr.two{
+	border: 1px solid rgb(197, 197, 197);
+}
+hr.three{
+	width:90%;
+	border: 1px dashed rgb(197, 197, 197);
+}
+hr.lastHr{
+	border:  3px double gray;
+}

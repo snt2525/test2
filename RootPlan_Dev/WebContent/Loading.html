@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8">
+   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<script type="text/javascript"
+	src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=gTUR4iAk1YVJAPF0hdQ9&submodules=geocoder"></script>
+   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+   <link rel="stylesheet" href="./css/ThirdCSS.css">
+   <link href="css/style.css" rel="stylesheet">
+   </head>
+   
+   <body>
+       <form name="finishCallDFS1" id="finishCallDFS1" method="post">         
+         <input type="hidden" id="menuIndex" name ="menuIndex" value="16" /> 
+         <input type="hidden" id="how" name="how" value="0"/>    
+         <input type="hidden" id="IDNum" name="IDNum" value="0"/>                                   
+       </form>   
+              
+       <form name="finish1" id="finish1" method="post">         
+         <input type="hidden" id="menuIndex" name ="menuIndex" value="13" /> 
+         <input type="hidden" id="what" name="what" value="0"/>  
+         <input type="hidden" id="IDNum" name="IDNum" value="0"/>            
+       </form>      
+   
+       <form name="finishCallDFS2" id="finishCallDFS2" method="post">         
+         <input type="hidden" id="menuIndex" name ="menuIndex" value="16" /> 
+         <input type="hidden" id="how" name="how" value="1"/>  
+         <input type="hidden" id="IDNum" name="IDNum" value="0"/>                                     
+       </form>   
+              
+       <form name="finish2" id="finish2" method="post">         
+         <input type="hidden" id="menuIndex" name ="menuIndex" value="13" /> 
+         <input type="hidden" id="what" name="what" value="1"/> 
+         <input type="hidden" id="IDNum" name="IDNum" value="0"/>             
+       </form>  
+           
+     <div id="container" class="wrap">
+      <div>
+         <!-- NewFile -->
+        <form name="form" id="form" method="post">
+        <input type="hidden" id="IDNum" name="IDNum" value="0"> 
+			<div class="search">
+				<input type="hidden" id="jibunAddr" value="" /> 
+				<input type="hidden" id="confmKey" name="confmKey"
+					value="U01TX0FVVEgyMDE4MDcxMTIxMDYwMTEwODAwMzQ=">
+			</div>
+		</form>
+
+         <div id="wrap" class="section">
+            <div id="map2" style="width: 100%; height: 100%;"></div>
+            <code id="snippet" class="snippet"></code>
+         </div>
+      </div>
+     <div class="over">
+         <div><img class="over_loading" src="img/loaderFinal.gif"></div>
+         <div><img class="over_message" src="img/loadingMsg.gif"></div>
+      </div>
+   </div> 
+   
+	<!-- <script language="JavaScript" src="Init.js"></script> -->
+     <script language="JavaScript" src="jsCode/CallDfs.js?ver=1"></script>
+     <script language="JavaScript" src="jsCode/Login.js?ver=1"></script>
+     <script>
+     
+     var map2 = new naver.maps.Map("map2", {
+         center: new naver.maps.LatLng(37.3595316, 127.1052133),
+         zoom: 10,
+         size : new  naver.maps.Size($(window).width(), $(window).height()), 
+         mapTypeControl: true
+     });
+     sessionCheck(1);
+     start();
+     </script> 
+   </body>
