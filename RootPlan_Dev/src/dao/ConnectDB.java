@@ -202,7 +202,7 @@ public class ConnectDB {
 			//System.out.println("SQLException: " + SQLex.getMessage());
 			////System.out.println("SQLState: " + SQLex.getSQLState());
 		}	
-	}
+	} 
 	
 	public String GetAllData(String cID) { //모든 데이터 넘겨주기
 		String resultStr = "<SaveData>";
