@@ -1,3 +1,9 @@
+
+# RootPlan_Openshift_deploy
+Rootplan 웹을 Openshift에 배포하기 위한 POM.xml환경 설정이 되어있습니다.
+
+시연영상 및 자료는 RootPlan_Original 레파지토리에 있습니다.
+
 # 사용자 맞춤형 여행 Planner 루트플랜(RootPlan)
 
 <p align="center"><img src="readme_img/logo.JPG"></p>
@@ -57,6 +63,6 @@
 <br>
 
 **개발환경&언어**
--------------
+
 ![개발환경&언어](readme_img/skill.JPG) 
 
