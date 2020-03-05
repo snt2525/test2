@@ -55,6 +55,5 @@ function callResultCar() { //자동차
 			carFlag = 1;
 		}
 	});
-
 	location.replace("Last.html");
 }
