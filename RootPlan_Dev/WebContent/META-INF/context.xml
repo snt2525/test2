@@ -2,6 +2,6 @@
 
 <Context>
 	<Resource name="jdbc/mysqldb" auth="Container" type="javax.sql.DataSource"   
-		username="rootplan" password="rootplan" driverClassName="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://rootplan-mysql:3306/rootplan?serverTimezone=Asia/Seoul&amp;verifyServerCertificate=false&amp;useSSL=false" />
+		username="root" password="rootplan" driverClassName="com.mysql.cj.jdbc.Driver"
+		url="jdbc:mysql://192.168.99.100:3306/rootplan?serverTimezone=Asia/Seoul&amp;verifyServerCertificate=false&amp;useSSL=false" />
 </Context>

@@ -86,25 +86,27 @@ function ChangeImage(check){ //  저장 버튼 클릭시 변신
 
 
 function save(){
-   var name = prompt("저장할 경로의 이름을 입력해 주세요.");
-   var id = sessionStorage.getItem("id","");
-   $.ajax({
-      url:"/AddressDataServlet",
-      dataType: "text",
-      data: "menuIndex=0&customerID="+customerID+"&cID="+id+"&what=1&name="+name,
-      success: function(data){
-         if(data==1){
-            state=1;
-            document.saveBtn.src="img/star_orange.png";
-         }else if(data==0){
-            alert("이미 저장되어 있습니다.");
-         }
-      },       
-       error: function (data) {
-          alert("저장에 실패했습니다.");
-       }            
-   });
-   alert("'"+name+"' 이 성공적으로 저장 되었습니다.")
+   var name = prompt("저장할 경로의 이름을 입력해 주세요.(1글자 이상)");
+   if(name){
+	   var id = sessionStorage.getItem("id","");
+	   $.ajax({
+	      url:"/AddressDataServlet",
+	      dataType: "text",
+	      data: "menuIndex=0&customerID="+customerID+"&cID="+id+"&what=1&name="+name,
+	      success: function(data){
+	         if(data==1){
+	            state=1;
+	            document.saveBtn.src="img/star_orange.png";
+	            alert("'"+name+"' 이 성공적으로 저장 되었습니다.");
+	         }else if(data==0){
+	            alert("이미 저장되어 있습니다.");
+	         }
+	      },       
+	       error: function (data) {
+	          alert("저장에 실패했습니다.");
+	       }            
+	   });
+   }
 }
 
 function showResultPT(){
@@ -240,7 +242,7 @@ function showResultCar(){
           async:false,
           dataType: "xml",
           data:  $("#showCar").serialize()+"&customerID="+customerID,
-          success: function(data){
+          success: function(data){ 
              var htmlStr ="";
              var totalDistance=0, totalTime=0, totalFare=0, now=0, wayCount=0, count=0, cycle=0;
              htmlStr += "<div><br><br><br>접근 불가능한 지역은 교통정보를 제공하지 않습니다.</div>";

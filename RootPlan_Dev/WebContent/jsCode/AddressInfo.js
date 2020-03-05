@@ -70,6 +70,9 @@ function getData(){
 		dataType: "xml",
 		data: $("#getAddressData").serialize()+"&customerID="+customerID,
 		success: function(data){
+			$(prev).css("background-color","rgb(255, 153, 000)");
+		    prev = "#btnMainList";
+			$(prev).css("background-color","#FC7A00");
 			var htmlStr = "";
 			if(data!= null){
 				$(prev).css("background-color","rgb(255, 153, 000)");
@@ -79,8 +82,8 @@ function getData(){
 				htmlStr = "<h5 class='headline'>여행지 선택</h5>";
 				$(data).find("Address").each(function(){
 					htmlStr += "<div style='display:flex;'>";
-					htmlStr += "<div class='left-content'><img src='img/mark" + $(this).find('no').text()+".png'/></div>";
-					htmlStr += "<div class='middle-content'>" + $(this).find('data').text() + "</div>";
+					htmlStr += "<div class='left-content'><img style='margin-left:10px;	margin-right:15px; width:80%;' src='img/mark" + $(this).find('no').text()+".png'/></div>";
+					htmlStr += "<div class='middle-content2'>" + $(this).find('data').text() + "</div>";
 					htmlStr += "<div class='right-content'><a href='#' class='delete-factor no-uline noul' id='del', name='"+ $(this).find("no").text() +"'>X</a></div>";
 					htmlStr += "</div>";
 					
@@ -200,11 +203,11 @@ function showMessage(){
 	//htmlStr += "<div><p>★경유지 성택하기</p>" +
 		//	"<p>여행지는 최소 3개에서 최대 7개까지 선택할 수 있습니다. 시작지점과 마지막 지점을 선택하셔야 결과를 보실 수 있습니다.</p></div>";
 	
-	htmlStr += "<div><h5><b>[경로 선택방법 3가지]</b></h5>" +
+	htmlStr += "<div><h5 style='font-size:80%;'><b>[경로 선택방법 3가지]</b></h5>" +
 			"<p>1. 지도를 직접 클릭합니다.</p>" +
 			"<p>2. 검색 버튼을 눌러 목적지를 검색합니다.</p>" +
 			"<p>3. 지도 아래에 있는 해당 지역 대표 여행지의 위치보기 버튼을 클릭합니다. (가이드 키워드를 사용해 관련 지역의 다양한 여행지 정보를 추가로 얻을 수 있습니다.)</p>" +
-			"<p><br>위와 같은 방법을 통하면 지도위에 정보창이 뜨게 되고, +버튼을 클릭하여 여행지를 선택합니다. </p></div>";
+			"<p>위와 같은 방법을 통하면 지도위에 정보창이 뜨게 되고, +버튼을 클릭하여 여행지를 선택합니다. </p></div>";
 	
 	$("#list").html(htmlStr); 
 }
