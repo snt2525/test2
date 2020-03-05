@@ -70,6 +70,9 @@ function getData(){
 		dataType: "xml",
 		data: $("#getAddressData").serialize()+"&customerID="+customerID,
 		success: function(data){
+			$(prev).css("background-color","rgb(255, 153, 000)");
+		    prev = "#btnMainList";
+			$(prev).css("background-color","#FC7A00");
 			var htmlStr = "";
 			if(data!= null){
 				$(prev).css("background-color","rgb(255, 153, 000)");
