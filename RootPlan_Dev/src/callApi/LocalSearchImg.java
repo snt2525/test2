@@ -14,7 +14,7 @@ public class LocalSearchImg {
 	 public String getImage(String imgTitle,int num) {
 	      ////System.out.println("이미지 불러오기");
 	      try {
-	         String text = URLEncoder.encode(imgTitle, "utf-8");
+	         String text = URLEncoder.encode(imgTitle, "UTF-8");
 	         // 여기에 있는 display 값을 조정함에 따라 사진을 긁어오는게 달라진다. 
 	         String apiURL = "https://openapi.naver.com/v1/search/image?query=" + text + "&display=" + 100 + "&";
 	         URL url = new URL(apiURL);
