@@ -32,7 +32,7 @@ function getLocalSearchData(){
 	var word = keyword;
    $.ajax({
        url:"/CallSearchLocalApi",
-       dataType: "text",
+       dataType: "xml",
        data: $("#SiData").serialize()+"&customerID="+customerID,
        success: function(data){
     	   if(data!='0'){
@@ -98,7 +98,7 @@ function showAddressData(xData,yData,no){  //나중에 marker가 안나온다면
    
    $.ajax({
        url:"/CallSearchLocalApi",
-       dataType: "text",
+       dataType: "xml",
        type : "post",
        data: $("#getImgURL").serialize()+"&customerID="+customerID,
        success: function(data){
