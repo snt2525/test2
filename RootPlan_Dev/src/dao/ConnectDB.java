@@ -26,12 +26,11 @@ public class ConnectDB {
 		try {	
 			InitialContext ct = new InitialContext();
 			ds = (DataSource)ct.lookup("java:comp/env/jdbc/mysqldb");
-			
-
 		} catch (Exception e) {
 			
-		}
+		}			
 	}
+	
 	public void CheckID(CustomerInfo info) {
 		//System.out.println("checkID");
 		try {			
